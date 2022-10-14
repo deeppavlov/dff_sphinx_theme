@@ -6,7 +6,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 🛎️
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
 
       - name: Setup NodeJS LTS 🪢
         uses: actions/setup-node@v3
