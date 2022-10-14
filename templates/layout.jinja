@@ -1,0 +1,112 @@
+{# TEMPLATE VAR SETTINGS #}
+
+{%- set url_root = pathto('', 1) %}
+
+{%- if url_root == '#' %}
+    {% set url_root = '' %}
+{% endif %}
+
+{%- if not embedded and docstitle %}
+    {%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
+{%- else %}
+    {%- set titlesuffix = "" %}
+{%- endif %}
+
+{%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
+
+{% import 'theme_variables.jinja' as theme_variables %}
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="{{ lang_attr }}" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="{{ lang_attr }}" > <!--<![endif]-->
+    <head>
+       {% include "layout_head.html" %}
+    </head>
+
+    {% include "layout_menu.html" %}
+
+    <body class="pytorch-body">
+
+        {% block extrabody %} {% endblock %}
+
+        {% block navigation %}
+            {% include "layout_navigation.html" %}
+        {% endblock %}
+
+        <div class="pytorch-container">
+            <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+                <div class="pytorch-breadcrumbs-wrapper">
+                    {% include "breadcrumbs.html" %}
+                </div>
+
+                <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+                    Navigation
+                </div>
+            </div>
+
+            <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+                <div class="pytorch-content-left">
+                    {% if theme_tutorial_name != '' %}
+                        <div class="pytorch-call-to-action-links">
+                            <div id="tutorial-type">{{ theme_tutorial_name }}</div>
+
+                            <div id="google-colab-link">
+                                <span class="pytorch-colab call-to-action-any"></span>
+                                <div class="call-to-action-desktop-view">Run in Google Colab</div>
+                                <div class="call-to-action-mobile-view">Colab</div>
+                            </div>
+                            <div id="download-notebook-link">
+                                <span class="pytorch-download call-to-action-any"></span>
+                                <div class="call-to-action-desktop-view">Download Notebook</div>
+                                <div class="call-to-action-mobile-view">Notebook</div>
+                            </div>
+                            <div id="github-view-link">
+                                <span class="pytorch-github call-to-action-any"></span>
+                                <div class="call-to-action-desktop-view">View on GitHub</div>
+                                <div class="call-to-action-mobile-view">GitHub</div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {%- block content %}
+                        {% if theme_style_external_links|tobool %}
+                            <div class="rst-content style-external-links">
+                        {% else %}
+                            <div class="rst-content">
+                        {% endif %}
+                                <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+                                    {%- block document %}
+                                        <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                                            {% block body %} {% endblock %}
+                                        </article>
+                                        {% if self.comments()|trim %}
+                                            <div class="articleComments">
+                                                {% block comments %} {% endblock %}
+                                            </div>
+                                        {% endif%}
+                                    {%- endblock %}
+                                </div>
+                                {% include "footer.html" %}
+                            </div>
+                    {%- endblock %}
+                </div>
+
+                <nav class="pytorch-right-menu" id="pytorch-right-menu">
+                    <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+                        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="additional navigation">
+                            {{ toc }}
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div>
+
+        {%- block footer %} {% endblock %}
+
+        {% include "layout_footer.html" %}
+
+        {% include "layout_mobile.html" %}
+
+        {% include "scripts.html" %}
+    </body>
+</html>

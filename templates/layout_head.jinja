@@ -1,0 +1,80 @@
+<meta charset="utf-8">
+{{ metatags }}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block htmltitle %}
+    <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+{% endblock %}
+
+<!-- FAVICON -->
+{% if favicon %}
+    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+{% endif %}
+
+<!-- CANONICAL URL -->
+{% if theme_canonical_url %}
+    <link rel="canonical" href="{{ theme_canonical_url }}{{ pagename }}.html"/>
+{% endif %}
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css">
+
+<link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+
+{%- for css in css_files %}
+    {%- if css|attr("rel") %}
+        <link rel="{{ css.rel }}" href="{{ pathto(css.filename, 1) }}" type="text/css"{% if css.title is not none %} title="{{ css.title }}"{% endif %} />
+    {%- else %}
+        <link rel="stylesheet" href="{{ pathto(css, 1) }}" type="text/css" />
+    {%- endif %}
+{%- endfor %}
+
+{%- for cssfile in extra_css_files %}
+    <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+{%- endfor %}
+
+<!-- OPENSEARCH -->
+{% if not embedded and use_opensearch %}
+    <link rel="search" type="application/opensearchdescription+xml" title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}" href="{{ pathto('_static/opensearch.xml', 1) }}"/>
+{% endif %}
+
+{%- block linktags %}
+    {%- if hasdoc('about') %}
+        <link rel="author" title="{{ _('About these documents') }}" href="{{ pathto('about') }}" />
+    {%- endif %}
+    {%- if hasdoc('genindex') %}
+        <link rel="index" title="{{ _('Index') }}" href="{{ pathto('genindex') }}" />
+    {%- endif %}
+    {%- if hasdoc('search') %}
+        <link rel="search" title="{{ _('Search') }}" href="{{ pathto('search') }}" />
+    {%- endif %}
+    {%- if hasdoc('copyright') %}
+        <link rel="copyright" title="{{ _('Copyright') }}" href="{{ pathto('copyright') }}" />
+    {%- endif %}
+    {%- if next %}
+        <link rel="next" title="{{ next.title|striptags|e }}" href="{{ next.link|e }}" />
+    {%- endif %}
+    {%- if prev %}
+        <link rel="prev" title="{{ prev.title|striptags|e }}" href="{{ prev.link|e }}" />
+    {%- endif %}
+{%- endblock %}
+
+{%- block extrahead %}
+    <!-- Google Analytics TODO: disable if not needed -->
+    {% if theme_analytics_id %}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ theme_analytics_id }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ theme_analytics_id }}');
+        </script>
+    {% endif %}
+    <!-- End Google Analytics -->
+{% endblock %}
+
+<!-- Keep modernizr in head - http://modernizr.com/docs/#installing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>

@@ -1,0 +1,30 @@
+/**
+ * Final redaction
+ **/
+
+@import "variables";
+@import "fonts";
+
+
+
+html {
+  position: relative;
+  min-height: 100%;
+  font-size: 12px;
+
+  @include desktop {
+    font-size: 16px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  @include text-regular;
+}
+
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: $color_primary;
+}

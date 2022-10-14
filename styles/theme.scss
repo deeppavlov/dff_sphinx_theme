@@ -1,0 +1,20 @@
+// TODO: split to different files, remove unused (following two)
+@import "sphinx_base";
+@import "misc";
+
+@import "general";
+@import "highlighting";
+
+// TODO: split and incorporate into other styles
+@import "images";
+
+// TODO: remove unused styles and add documentation
+@import "menus";
+@import "top_menu";
+@import "left_menu";
+@import "right_menu";
+@import "bottom_menu";
+@import "content";
+
+// TODO: this code is imported from external sources, might be fixed and documented
+@import "code";

@@ -1,0 +1,33 @@
+<!-- SIDE NAV, TOGGLES ON MOBILE -->
+
+{% set display_tab = pagename.split('/')[0] %}
+
+<div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+</div>
+
+<nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <div class="pytorch-left-menu-search">
+                {% block sidebartitle %}
+                    {% include "searchbox.html" %}
+                {% endblock %}
+            </div>
+
+            {% block menu %}
+                <!-- The singlehtml builder doesn't handle this toctree call when the toctree is empty. Skip building this for now. -->
+                {% if 'singlehtml' not in builder %}
+                    {% set global_toc = toctree(collapse=theme_collapse_navigation|tobool, includehidden=theme_includehidden|tobool, titles_only=theme_titles_only|tobool) %}
+                {% endif %}
+                {% if global_toc and display_tab == 'documentation' %}
+                    {{ global_toc|replace("<ul>", "<ul class='nested-toc-container'>") }}
+                {% else %}
+                    <!-- Local TOC -->
+                    <div class="local-toc">{{ toc|replace("<ul>", "<ul class='nested-toc-container'>") }}</div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div>
+</nav>

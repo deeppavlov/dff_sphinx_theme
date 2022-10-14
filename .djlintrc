@@ -1,0 +1,5 @@
+{
+  "profile": "jinja",
+  "extension": "jinja",
+  "custom_blocks": "toc"
+}

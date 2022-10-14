@@ -1,0 +1,141 @@
+/**
+ * Final redaction
+ **/
+
+@import "variables";
+@import "fonts";
+
+
+
+// Left menu container
+
+#pytorch-left-menu {
+  display: block;
+  width: $left_menu_width;
+  z-index: 200;
+  float: left;
+
+  &.make-fixed {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    float: none;
+  }
+
+  @include screen-small-only {
+    display: none;
+    background-color: white;
+    color: $slate;
+    overflow: hidden;
+    border-right: 1px solid #e2e2e2;
+  }
+}
+
+
+
+// Search box
+
+.pytorch-left-menu-search {
+  margin: 1.25rem 0.625rem 1.875rem 0;
+
+  @include screen-small-only {
+    margin-bottom: rem(40px);
+  }
+
+  & input[type=text] {
+    box-sizing: border-box;
+    border: 2px solid $blue_light;
+    border-radius: 8px;
+
+    padding-left: 0.5rem;
+
+    background-image: url("../icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    background-color: transparent;
+    filter: opacity(60%);
+
+    &:hover {
+      background-color: $blue_light;
+    }
+  }
+}
+
+
+
+// Document tree
+
+#pytorch-left-menu p.caption {
+  @include text-semi;
+
+  margin-bottom: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  pointer-events: inherit;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: $blue_light;
+  }
+
+  &:after {
+    content: "";
+    width: 10%;
+    background-image: url("../icons/arrow_down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+#pytorch-left-menu p.caption span.caption-text {
+  max-width: 80%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pytorch-left-menu ul {
+  padding-left: 0;
+  margin-left: 5px;
+}
+
+#pytorch-left-menu p.caption.collapsed {
+  &:after {
+    transform: rotate(180deg);
+    transition: transform $left_menu_tree_animation_timeout;
+  }
+
+  & + ul {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height $left_menu_tree_animation_timeout, opacity $left_menu_tree_animation_timeout;
+  }
+}
+
+#pytorch-left-menu p.caption.expanded {
+  &:after {
+    transform: rotate(0deg);
+    transition: transform $left_menu_tree_animation_timeout;
+  }
+
+  & + ul {
+    max-height: 100vh;
+    opacity: 1;
+    transition: max-height $left_menu_tree_animation_timeout, opacity, $left_menu_tree_animation_timeout;
+  }
+}
+
+
+
+// Document tree padding and highlighting
+
+.pytorch-left-menu li.current ul, .pytorch-right-menu li.current ul {
+    padding-left: 1rem;
+}
+
+.pytorch-left-menu li.toctree-l2.current > a, .pytorch-right-menu li.toctree-l2.current > a {
+    color: $blue_dark;
+}

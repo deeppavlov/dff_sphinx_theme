@@ -1,0 +1,70 @@
+{% set display_tab = pagename.split('/')[0] %}
+
+<div class="container-fluid header-holder" id="header-holder">
+    <div class="header-logo-container">
+        <a class="header-logo" href="{{ pathto('intro_dff/index') }}" aria-label="PyTorch"></a>
+    </div>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="main-menu">
+                <ul>
+                    <li {%- if 'intro' in display_tab %} class="active"{% endif %}>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">Intro</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="{%- if display_tab == 'intro_dff' %}#{% else %}{{ pathto('intro_dff/index') }}{% endif %}">
+                                    <span class="dropdown-title {%- if display_tab == 'intro_dff' %} active{% endif %}">Dialog Flow Framework</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="{%- if display_tab == 'intro_addons' %}#{% else %}{{ pathto('intro_addons/index') }}{% endif %}">
+                                    <span class="dropdown-title {%- if display_tab == 'intro_addons' %} active{% endif %}">Addons</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="{%- if display_tab == 'intro_designer' %}#{% else %}{{ pathto('intro_designer/index') }}{% endif %}">
+                                    <span class="dropdown-title {%- if display_tab == 'intro_designer' %} active{% endif %}">Designer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li {%- if display_tab == 'get_started' %} class="active"{% endif %}>
+                        <a href="{%- if display_tab == 'get_started' %}#{% else %}{{ pathto('get_started/index') }}{% endif %}">Get Started</a>
+                    </li>
+
+                    <li {%- if display_tab == 'tutorials' %} class="active"{% endif %}>
+                        <a href="{%- if display_tab == 'tutorials' %}#{% else %}{{ pathto('tutorials/index') }}{% endif %}">Tutorials</a>
+                    </li>
+
+                    <li {%- if display_tab == 'documentation' %} class="active"{% endif %}>
+                        <a href="{%- if display_tab == 'documentation' %}#{% else %}{{ pathto('documentation/index') }}{% endif %}">Documentation</a>
+                    </li>
+
+                    <li {%- if display_tab == 'ecosystem' %} class="active"{% endif %}>
+                        <a href="{%- if display_tab == 'ecosystem' %}#{% else %}{{ pathto('ecosystem/index') }}{% endif %}">Ecosystem</a>
+                    </li>
+
+                    <li {%- if 'about' in display_tab %} class="active"{% endif %}>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">About</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="{%- if display_tab == 'about_us' %}#{% else %}{{ pathto('about_us/index') }}{% endif %}">
+                                    <span class="dropdown-title {%- if display_tab == 'about_us' %} active{% endif %}">About Us</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['forums'] }}">
+                                    <span class="dropdown-title">Forums</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['discuss'] }}">
+                                    <span class="dropdown-title">Telegram</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="{{ theme_variables.external_urls['github'] }}">
+                                    <span class="dropdown-title">GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+        </div>
+    </div>
+</div>

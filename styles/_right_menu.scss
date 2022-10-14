@@ -1,0 +1,134 @@
+/**
+ * Final redaction
+ **/
+
+@import "variables";
+@import "fonts";
+
+@import "sphinx_base";
+
+
+
+// Right menu container
+
+.pytorch-right-menu {
+  margin-right: 0;
+  display: block;
+  margin-left: 0;
+  width: 24%;
+  float: left;
+  height: 100%;
+  padding-right: 5px;
+  z-index: 200;
+  padding-top: 0;
+  position: relative;
+
+  &.make-fixed {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    float: none;
+  }
+
+  @include screen-small-only {
+    display: none;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+
+
+
+// Expanding elements
+
+.pytorch-right-menu a.reference.internal {
+  &.expanded:before {
+    content: "-";
+    font-family: monospace;
+    position: absolute;
+    left: -12px;
+  }
+
+  &.not-expanded:before {
+    content: "+";
+    font-family: monospace;
+    position: absolute;
+    left: -12px;
+  }
+}
+
+
+
+// Unknown purpose styles TODO: research
+
+.pytorch-right-menu {
+  li.active > a {
+    color: $blue_dark;
+
+    span.pre, &:before {
+      color: $blue_dark;
+    }
+
+    &:after {
+      content: "\2022";
+      color: $blue_dark;
+      display: inline-block;
+      font-size: rem(22px);
+      left: -17px;
+      position: absolute;
+      top: 1px;
+    }
+  }
+
+  .pytorch-side-scroll > ul > li > ul > li {
+    margin-bottom: 0;
+  }
+
+  ul ul {
+    padding-left: 0;
+
+    li {
+      padding-left: 0;
+
+      a.reference.internal {
+        padding-left: 0;
+      }
+
+      ul {
+        display: none;
+        padding-left: 10px;
+      }
+
+      li a.reference.internal {
+        padding-left: 0;
+      }
+    }
+  }
+
+  li ul {
+    display: block;
+  }
+}
+
+.pytorch-right-menu .pytorch-side-scroll {
+  > ul {
+    padding-left: 20px;
+    padding-right: 0;
+    margin-bottom: 0;
+
+    @include sphinx-full-size {
+      padding-left: 25px;
+    }
+
+    > li > a.reference.internal  {
+      color: $slate;
+      font-weight: 500;
+    }
+  }
+
+  ul li {
+    position: relative;
+  }
+}

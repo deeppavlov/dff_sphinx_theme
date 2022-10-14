@@ -1,0 +1,208 @@
+@import "sphinx_base";
+
+
+
+.pytorch-article #table-of-contents {
+  display: none;
+}
+
+article.pytorch-article {
+  max-width: 920px;
+  margin: 0 auto;
+
+  h2 {
+    @include heading-1;
+  }
+
+  h3 {
+    @include heading-2;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @include title;
+  }
+
+  p {
+    margin-bottom: rem(18px);
+  }
+
+  p,
+  ul li,
+  ol li,
+  dl dt,
+  dl dd,
+  blockquote {
+    @include text-regular;
+  }
+
+  table {
+    margin-bottom: rem(40px);
+    width: 100%;
+  }
+
+  table thead {
+    border-bottom: 1px solid $medium_grey;
+  }
+
+  table th {
+    padding: rem(10px);
+    color: $not_quite_black;
+  }
+
+
+  table td {
+    padding: rem(5px);
+  }
+
+  table tr th:first-of-type,
+  table tr td:first-of-type {
+    padding-left: 0;
+  }
+
+  table.docutils.field-list {
+    th.field-name {
+      padding: rem(5px) rem(5px) rem(5px) 0;
+    }
+
+    td.field-body {
+      padding: rem(5px);
+      p:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ul,
+  ol{
+    margin: rem(24px) 0 rem(50px) 0;
+
+    @include desktop {
+      padding-left: rem(100px);
+    }
+
+    li {
+      margin-bottom: rem(10px);
+    }
+  }
+
+  dl {
+    margin-bottom: rem(24px);
+  }
+
+  dl dt {
+    margin-bottom: rem(12px);
+  }
+
+  pre {
+    margin-bottom: rem(40px);
+  }
+
+  hr {
+    margin-top: rem(75px);
+    margin-bottom: rem(75px);
+  }
+
+  blockquote {
+    margin: 0 auto rem(40px);
+    width: 65%;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.pytorch-container {
+  margin: 0 auto;
+  padding: 0 rem(30px);
+  width: auto;
+  position: relative;
+  @include full-nav-menu-desktop {
+    padding: 0;
+  }
+
+  @include sphinx-medium-size {
+    margin-left: 25%;
+  }
+
+  @include clearfix;
+}
+
+.pytorch-content-wrap {
+  background-color: #ffffff;
+  display: flex;
+  position: relative;
+  padding-top: 0;
+  @include clearfix;
+
+  @include sphinx-medium-size {
+    padding-top: 45px;
+    float: left;
+    width: 100%;
+    display: block;
+  }
+
+  @include sphinx-full-size {
+    width: 100%;
+  }
+}
+
+.pytorch-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: $sphinx_full_width_content_width;
+  position: relative;
+}
+
+.pytorch-content-left {
+  min-height: 100vh;
+  margin-top: rem(40px);
+  width: 100%;
+
+  @include sphinx-medium-size {
+    margin-top: 0;
+    margin-left: 20px;
+    width: $sphinx_article_width;
+    float: left;
+  }
+
+  @include sphinx-full-size {
+    width: $sphinx_article_width;
+    margin-left: 30px;
+  }
+
+  .main-content {
+    padding-top: rem(15px);
+    ul.simple {
+      padding-bottom: rem(20px);
+    }
+    .note, .warning {
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+// Divide
+
+/* Fixes copyright bottom offset */
+
+.rst-content footer div[role=contentinfo] {
+    padding-bottom: 2.5rem;
+}
+
+
+
+// Fixes sphinx gallery columns
+
+.sphx-glr-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+}

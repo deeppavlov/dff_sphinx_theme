@@ -1,0 +1,100 @@
+<div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Docs</h2>
+                <p>Access comprehensive developer documentation for DFF</p>
+                <a class="with-right-arrow" href="{{ pathto('../documentation', 1) }}">View Docs</a>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Tutorials</h2>
+                <p>Get in-depth tutorials for beginners and advanced developers</p>
+                <a class="with-right-arrow" href="{{ pathto('../tutorials', 1) }}">View Tutorials</a>
+            </div>
+
+            <!--TODO: fix!!-->
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Resources</h2>
+                <p>Find development resources and get your questions answered</p>
+                <a class="with-right-arrow" href="{{ theme_variables.external_urls['resources'] }}">View Resources</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="container footer-container">
+        <!--TODO: fix!!-->
+        <div class="footer-logo-wrapper">
+            <a href="{{ pathto('../intro_dff', 1) }}" class="footer-logo"></a>
+        </div>
+
+        <div class="footer-links-wrapper">
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="{{ pathto('../intro_dff', 1) }}">DialogFlow Framework</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ pathto('../get_started', 1) }}">Get Started</a>
+                    </li>
+
+                    <!--TODO: fix!!-->
+                    <li>
+                        <a href="{{ theme_variables.external_urls['features'] }}">Features</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ pathto('../ecosystem', 1) }}">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ theme_variables.external_urls['contributing'] }}">Contributing</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="{{ theme_variables.external_urls['resources'] }}">Resources</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ pathto('../tutorials', 1) }}">Tutorials</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ pathto('../documentation', 1) }}">Docs</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ theme_variables.external_urls['discuss'] }}" target="_blank">Discuss</a>
+                    </li>
+
+                    <li>
+                        <a href="{{ theme_variables.external_urls['github_issues'] }}" target="_blank">Github Issues</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col follow-us-col">
+                <ul>
+                    <li class="list-title">Stay Connected</li>
+                </ul>
+
+                <div class="footer-social-icons">
+                    <a href="{{ theme_variables.external_urls['facebook'] }}" target="_blank" class="facebook"></a>
+                    <a href="{{ theme_variables.external_urls['twitter'] }}" target="_blank" class="twitter"></a>
+                    <a href="{{ theme_variables.external_urls['youtube'] }}" target="_blank" class="youtube"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% include "cookie_banner.html" %}

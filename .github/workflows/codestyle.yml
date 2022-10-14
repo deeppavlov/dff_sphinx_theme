@@ -1,0 +1,31 @@
+name: codestyle
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 🛎️
+
+      - name: Setup NodeJS LTS 🪢
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.18
+
+      - name: Setup Python 3.9 🐍
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install Dependencies 📦
+        run: npm i
+
+      - name: Run Codestyle (Scripts) 📜
+        run: npm run scripts-lint
+
+      - name: Run Codestyle (Styles) 📝
+        run: npm run styles-lint
+
+      - name: Run Codestyle (Jinja) 🥷
+        run: npm run jinja-lint

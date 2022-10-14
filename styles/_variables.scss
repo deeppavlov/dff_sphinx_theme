@@ -1,0 +1,216 @@
+@use 'sass:math';
+
+
+
+// new fonts
+$primary_text: #1C1C1C;
+
+// ------
+$custom-font-size: 16px;
+$black: #000000;
+$white: #ffffff;
+$dark_grey: #6c6c6d;
+$dark_grey_alt: #979797;
+$light_grey: #f3f4f7;
+$color_primary: #2F42F9;
+$medium_grey: #f3f4f7;
+$not_quite_black: #262626;
+$hover_background: #EFEEFF;
+$slate: #262626;
+$very_light_grey: #f3f4f7;
+$very_dark_grey: #CCCDD1;
+$content_text_color: #6c6c6d;
+$code_background_color: #f3f4f7;
+$dark_blue: #3d5a97;
+$quick_start_grey: #6c6c6d;
+$command_block_black: #6c6c6d;
+$smoky_grey: #CCCDD1;
+$medium_smoky_grey: #CCCDD1;
+$code_link_color: #fe6162;
+
+// modern
+
+// Colors
+
+$white: rgba(255, 255, 255, 1);
+$gray: rgba(0, 0, 0, 0.6);
+$black: rgba(0, 0, 0, 1);
+$blue_light: rgba(32, 54, 255, 0.1);
+$blue_medium: rgba(32, 54, 255, 0.3);
+$blue_dark: rgba(32, 54, 255, 1);
+$green: rgba(6, 167, 125, 1);
+$orange: rgba(242, 100, 48, 1);
+$purple: rgba(166, 78, 152, 1);
+
+
+
+// Screen sizes & appropriate mixins
+
+$screen_lower_width: 640px;
+$screen_higher_width: 1280px;
+
+@mixin screen-medium-only { // needs revisiting when styling is done
+  @media screen and (min-width: $screen_lower_width) and (max-width: $screen_higher_width) {
+    @content;
+  }
+}
+
+@mixin screen-small-only { // needs revisiting when styling is done
+  @media screen and (max-width: $screen_lower_width) {
+    @content;
+  }
+}
+
+
+
+// Size constants
+
+$left_menu_width: 25%;
+
+
+
+// Animation constants
+
+$left_menu_tree_animation_timeout: 400ms;
+
+// modern end
+
+$desktop_menu_width: 350px;
+$sphinx_full_width: 1600px;
+$sphinx_medium_width: 1101px;
+
+$desktop_header_height: 90px;
+$mobile_header_height: 68px;
+$desktop_footer_height: 420px;
+$site_horizontal_padding: 30px;
+
+$baseurl: "";
+
+@mixin code_font_family {
+  font-family: 'IBMPlexMono', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'
+}
+
+@mixin desktop {
+  @media screen and (min-width: 768px) { @content; }
+}
+
+@mixin full-nav-menu-desktop {
+  @media screen and (min-width: 1100px) { @content; }
+}
+
+@mixin max-width-desktop {
+  @media screen and (min-width: 1240px) { @content; }
+}
+
+@mixin small-desktop {
+  @media (min-width: 768px) and (max-width: 1239px) { @content; }
+}
+
+@mixin sphinx-full-size {
+  @media screen and (min-width: $sphinx_full_width) { @content; }
+}
+
+@mixin sphinx-medium-size {
+  @media screen and (min-width: $sphinx_medium_width) { @content; }
+}
+
+@function strip-unit($number) { // TODO: remove + rewrite all `rem` occurrences without units
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+  @return $number;
+}
+
+@function rem($px) {
+  @return calc(strip-unit($px) / 16) * 1rem;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+  & {
+    *zoom: 1;
+  }
+}
+
+@mixin default_link_styles {
+  a:link,
+  a:visited,
+  a:hover {
+    color: $color_primary;
+    text-decoration: none;
+  }
+
+  @include desktop {
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin animated_card_hover {
+  @include desktop {
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      position: absolute;
+      top: calc(100% - 12px);
+      left: 15px;
+      background-color: $color_primary;
+      transition: width .25s ease-in-out;
+    }
+
+    &:hover:after {
+      width: calc(100% - 30px);
+    }
+  }
+}
+
+@mixin animated_card_hover_small {
+  @include desktop {
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      position: absolute;
+      top: calc(100% - 22px);
+      left: 15px;
+      background-color: $color_primary;
+      transition: width .25s ease-in-out;
+    }
+
+    &:hover:after {
+      width: calc(100% - 30px);
+    }
+  }
+}
+
+
+@mixin animated_border_hover_state {
+  @include desktop {
+    &:after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      position: absolute;
+      bottom: -1px;
+      left: 5px;
+      background-color: $color_primary;
+      transition: width .250s ease-in-out;
+    }
+
+    &:hover:after {
+      width: calc(100% - 5px);
+    }
+  }
+}

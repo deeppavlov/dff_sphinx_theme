@@ -1,0 +1,172 @@
+@import "variables";
+@import "sphinx_base";
+
+
+
+// TODO find and add documentation
+
+a, .btn {
+  &.with-right-arrow {
+    padding-right: rem(22px);
+    position: relative;
+    background-image: url("../images/chevron-right-orange.svg");
+    background-size: 6px 13px;
+    background-position: center right 5px;
+    background-repeat: no-repeat;
+    @include desktop {
+      background-size: 8px 14px;
+      background-position: center right 12px;
+      padding-right: rem(32px);
+    }
+  }
+}
+
+.anchorjs-link {
+  color: $quick_start_grey !important;
+  @include desktop {
+    &:hover {
+      color: inherit;
+      text-decoration: none !important;
+    }
+  }
+}
+
+.badge {
+  font-weight: inherit;
+  border-radius: 3px;
+}
+
+.badge-primary {
+  background-color: $color_primary;
+}
+
+.badge-secondary {
+  background-color: $dark_grey_alt;
+}
+
+.collapse {
+  display: none;
+}
+
+.left-nav-top-caption {
+  padding-top: 1rem;
+}
+
+.pytorch-page-level-bar {
+  display: none;
+  align-items: center;
+  background-color: $white;
+  border-bottom: 1px solid #e2e2e2;
+  width: 100%;
+  z-index: 201;
+
+  @include sphinx-medium-size {
+    left: 0;
+    display: flex;
+    height: calc($desktop_header_height / 2);
+    padding-left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+
+    &.left-menu-is-fixed {
+      position: fixed;
+      top: 0;
+      left: 25%;
+      padding-left: 0;
+      right: 0;
+      width: 75%;
+    }
+  }
+
+  @include sphinx-full-size {
+    left: 0;
+    right: 0;
+    width: auto;
+    z-index: 1;
+
+    &.left-menu-is-fixed {
+      left: $desktop_menu_width;
+      right: 0;
+      width: auto;
+    }
+  }
+
+  ul, li {
+    margin: 0;
+  }
+}
+
+.pytorch-shortcuts-wrapper {
+  display: none;
+
+  @include sphinx-medium-size {
+    font-size: rem(14px);
+    float: left;
+    margin-left: $sphinx_right_menu_wrap_left_margin;
+  }
+
+  @include sphinx-full-size {
+    margin-left: rem(30px);
+  }
+}
+
+.cookie-banner-wrapper {
+  display: none;
+
+  .container {
+    padding-left: rem(30px);
+    padding-right: rem(30px);
+    max-width: 1240px;
+  }
+
+  &.is-visible {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    background-color: $light_grey;
+    min-height: 100px;
+    width: 100%;
+    z-index: 401;
+    border-top: 3px solid #ededee;
+  }
+
+  .gdpr-notice {
+    color: $dark_grey;
+    margin-top: rem(25px);
+    text-align: left;
+    max-width: 1440px;
+    @include desktop {
+      width: 77%;
+    }
+    @include small-desktop {
+      width: inherit;
+    }
+
+    .cookie-policy-link {
+      color: #343434;
+    }
+  }
+
+  .close-button {
+    appearance: none;
+    background: transparent;
+    border: 1px solid $light_grey;
+    height: rem(21px);
+    position: absolute;
+    bottom: 42px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    outline: none;
+    @include desktop {
+      right: 20%;
+      top: inherit;
+    }
+
+    @include small-desktop {
+      right: 0;
+      top: 0;
+    }
+  }
+}

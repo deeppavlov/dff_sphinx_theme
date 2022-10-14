@@ -1,0 +1,137 @@
+.cookie-banner-wrapper .close-button {
+    background-image: url("../images/pytorch-x.svg");
+    background-size: 100% 100%;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 1rem;
+    height: 1rem;
+}
+
+
+
+.call-to-action-any {
+    width: 2rem;
+    height: 2rem;
+    margin-inline: 10px;
+    background-size: 100% 100%;
+}
+
+.pytorch-colab {
+    background-image: url("../images/pytorch-colab.svg");
+}
+
+.pytorch-download {
+    background-image: url("../images/pytorch-download.svg");
+}
+
+.pytorch-github {
+    background-image: url("../images/pytorch-github.svg");
+}
+
+
+.btn.btn-neutral {
+    display: flex;
+}
+
+.next-page, .previous-page {
+    width: 5px;
+    margin-inline: 5px;
+    background-size: 100% 100%;
+    background-image: url("../images/chevron-right-orange.svg");
+}
+
+.previous-page {
+    transform: scaleX(-1);
+}
+
+
+
+.pytorch-breadcrumbs {
+    position: absolute;
+    display: contents;
+}
+
+.view-page-source-icon {
+    width: 30px;
+    height: 20px;
+    background-size: 100% 100%;
+    display: block;
+    background-image: url("../images/view-page-source-icon.svg");
+}
+
+
+
+a.with-right-arrow, .btn.with-right-arrow {
+    background-image: url("../images/chevron-right-orange.svg");
+}
+
+.email-subscribe-form input[type="submit"] {
+    background-image: url("../images/arrow-right-with-tail.svg");
+}
+
+.header-logo {
+    background-image: url("../images/logo.svg");
+}
+
+.main-menu-open-button {
+    background-image: url("../images/icon-menu-dots-dark.svg");
+    background-position: top;
+}
+
+.main-menu-close-button {
+    background-image: url("../images/icon-close.svg");
+    top: 8px;
+    right: 24px;
+}
+
+.docs-tutorials-resources .with-right-arrow:hover {
+    background-image: url("../images/chevron-right-white.svg");
+}
+
+.footer-logo {
+    background-image: url("../images/logo-icon.svg");
+}
+
+.footer-social-icons a.facebook {
+    background-image: url("../images/logo-facebook-dark.svg");
+}
+
+.footer-social-icons a.twitter {
+    background-image: url("../images/logo-twitter-dark.svg");
+}
+
+.footer-social-icons a.youtube {
+    background-image: url("../images/logo-youtube-dark.svg");
+}
+
+.toggle-table-of-contents {
+    background-image: url("../images/chevron-down-grey.svg");
+}
+
+.header-holder .header-logo {
+    background-image: url("../images/logo.svg");
+}
+
+.header-holder .main-menu-open-button {
+    background-image: url("../images/icon-menu-dots-dark.svg");
+}
+
+.pytorch-article div.sphx-glr-download a {
+    background-image: url("../images/arrow-down-orange.svg");
+}
+
+.pytorch-article div.sphx-glr-download a:hover {
+    background-image: url("../images/arrow-down-orange.svg");
+}
+
+.resources-dropdown .with-down-orange-arrow {
+    background-image: url("../images/chevron-down-orange.svg");
+}
+
+.with-down-arrow {
+    background-image: url("../images/chevron-down-black.svg");
+}
+
+.with-down-arrow:hover {
+    background-image: url("../images/chevron-down-orange.svg");
+}

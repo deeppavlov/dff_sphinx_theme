@@ -1,0 +1,163 @@
+/**
+ * Final redaction
+ **/
+
+@import "variables";
+@import "fonts";
+
+@import "sphinx_base";
+
+
+
+// Side menus colors and position
+
+.pytorch-left-menu ul, .pytorch-right-menu ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 2.5rem;
+}
+
+.pytorch-left-menu a, .pytorch-right-menu a {
+  color: $black;
+  font-size: rem(14px);
+  line-height: rem(16px);
+  text-decoration: none;
+
+  min-height: 25px;
+  padding: 5px;
+
+  &:hover {
+    color: $blue_dark
+  }
+}
+
+.pytorch-menu-vertical {
+  display: block;
+  padding: 0 rem(25px) rem(90px) 0;
+
+  @include screen-medium-only {
+    padding: 1.25rem 1.5rem 2.5rem 1.5rem;
+  }
+}
+
+
+
+// Side menus toctrees documentation TODO: check on large toctrees
+
+.pytorch-left-menu li, .pytorch-right-menu li {
+  code {
+    border: none;
+    background: inherit;
+    color: inherit;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  // Expand links
+  span.toctree-expand {
+    display: block;
+    float: left;
+    margin-left: -1.2em;
+
+    font-size: 0.8em;
+    line-height: 1.6em;
+  }
+}
+
+.pytorch-left-menu, .pytorch-right-menu {
+  // On state for the first level
+  li.on a, li.current > a {
+    position: relative;
+    border: none;
+
+    span.toctree-expand {
+      display: block;
+      font-size: 0.8em;
+      line-height: 1.6em;
+    }
+  }
+
+  // the toctree menu (currently selected)
+  li.toctree-l1.current > a {
+    color: $blue_dark;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 100%;
+      background: $blue_dark;
+      left: -5px;
+      top: 0;
+      position: absolute;
+    }
+  }
+
+  // This is the on state for pages beyond second level
+  li.toctree-l1.current li.toctree-l2, li.toctree-l2.current li.toctree-l3 {
+    > ul {
+      display: none;
+    }
+
+    &.current > ul {
+      display: block;
+    }
+  }
+
+  li.current ul {
+    display: block;
+  }
+
+  li ul {
+    margin-bottom: 0;
+    display: none;
+  }
+
+  li ul li a {
+    margin-bottom: 0;
+  }
+
+  a {
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+// Side menus scrolling
+
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.pytorch-side-scroll {
+  overflow: hidden;
+  height: unset;
+  position: relative;
+}
+
+.pytorch-right-menu, .pytorch-left-menu {
+  scrollbar-width: thin;
+  scrollbar-color: $blue_light transparent;
+  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pytorch-menu-vertical {
+  padding: 1.25rem 1.5rem 2.5rem 1.5rem;
+}

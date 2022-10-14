@@ -1,0 +1,149 @@
+/**
+ * Final redaction
+ **/
+
+@import "variables";
+
+
+
+@font-face {
+    font-family: 'Inter Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Inter'), url('https://fonts.cdnfonts.com/s/19795/Inter-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter Semi';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Inter'), url('https://fonts.cdnfonts.com/s/19795/Inter-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Inter Normal';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Inter'), url('https://fonts.cdnfonts.com/s/19795/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DejaVu Sans Mono Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: local('DejaVu Sans Mono'), url('https://fonts.cdnfonts.com/s/108/DejaVuSansMono-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'DejaVu Sans Mono Normal';
+    font-style: normal;
+    font-weight: 400;
+    src: local('DejaVu Sans Mono'), url('https://fonts.cdnfonts.com/s/108/DejaVuSansMono.woff') format('woff');
+}
+
+
+
+@mixin heading-1 {
+    font-family: "Inter Bold", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150%;
+    color: $black;
+}
+
+@mixin heading-2 {
+    font-family: "Inter Bold", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 150%;
+    color: $black;
+}
+
+@mixin title-underlined {
+    font-family: "Inter Semi", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    color: $black;
+    text-decoration-line: underline;
+}
+
+@mixin title {
+    font-family: "Inter Semi", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    color: $black;
+}
+
+@mixin text-semi {
+    font-family: "Inter Semi", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: $black;
+}
+
+@mixin text-regular {
+    font-family: "Inter Normal", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $black;
+}
+
+@mixin text-semi-small {
+    font-family: "Inter Semi", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 150%;
+    color: $black;
+}
+
+@mixin text-small {
+    font-family: "Inter Normal", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: $black;
+}
+
+@mixin code-bold {
+    font-family: "DejaVu Sans Mono Bold", monospace;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: $black;
+}
+
+@mixin code-regular {
+    font-family: "DejaVu Sans Mono Normal", monospace;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: $black;
+}
+
+@mixin code-bold-small {
+    font-family: "DejaVu Sans Mono Bold", monospace;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: $black;
+}
+
+@mixin code-small {
+    font-family: "DejaVu Sans Mono Normal", monospace;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: $black;
+}
+
+@mixin navigation {
+    font-family: "Inter Normal", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: $black;
+}
