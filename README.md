@@ -1,8 +1,17 @@
-Build project: `webpack`  
-Build project with sourcemaps: `webpack --mode development`  
-Add root public path using `webpack --env root_path=[your custom path]`  
 Install project dependencies: `npm i`  
 NB! Requires NodeJS >= 8.4.0
+
+Build project: `webpack`  
+Build project with sourcemaps: `webpack --mode development`  
+Add root public path using `webpack --env root_path=[your custom path]`
+
+Build package: `python setup.py bdist_wheel && python setup.py sdist`
+
+For testing with demo module:
+- Build theme package (see above)
+- Install wheel locally: `pip install --force-reinstall ./dist/dff_sphinx_theme-*.whl`
+- Install demo module dependencies: `pip install -r demo/requirements.py`
+- Build docs: `sphinx-build demo/docs web-build`
 
 Analyzed and updated source files (`.ts` and `.scss`) are marked with following header:
 ```typescript

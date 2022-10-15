@@ -1,57 +1,41 @@
-import os
-
+from os import walk, path
 from setuptools import setup
-from io import open
-from build import __version__
 
-
-def package_files(directory: str):
-    """
-    Traverses target directory recursivery adding file paths to a list.
-    Original solution found at:
-        * https://stackoverflow.com/questions/27664504/\
-            how-to-add-package-data-recursively-in-python-setup-py
-    Parameters
-    ----------
-    directory: str
-        Target directory to traverse.
-    Returns
-    -------
-    paths: list
-        List of file paths.
-    """
-
-    paths = []
-    for (path, directories, filenames) in os.walk(directory):
-        for filename in filenames:
-            paths.append(os.path.join('..', path, filename))
-    return paths
+from dff_sphinx_theme.extras import __version__
 
 
 setup(
-    name = 'dff_sphinx_theme',
-    version =__version__,
-    author = 'Shift Lab',
-    author_email= 'info@shiftlabny.com',
-    url="https://github.com/pytorch/lightning_sphinx_theme",
-    docs_url="https://github.com/pytorch/lightning_sphinx_theme",
-    description='PyTorch Sphinx Theme',
-    py_modules = ['pt_lightning_sphinx_theme'],
-    packages = ['pt_lightning_sphinx_theme', 'pt_lightning_sphinx_theme.extensions'],
+    name='dff_sphinx_theme',
+    version=__version__,
+    author='Alexander Sergeev',
+    author_email='shveitsar215@gmail.com',
+    url="https://github.com/deeppavlov/dff_sphinx_theme",
+    docs_url="https://github.com/deeppavlov/dff_sphinx_theme",
+    description='Dialog Flow Framework Sphinx Theme',
+    py_modules=[
+        'dff_sphinx_theme'
+    ],
+    packages=[
+        'dff_sphinx_theme', 'dff_sphinx_theme.extras'
+    ],
     include_package_data=True,
     zip_safe=False,
-    package_data={'pt_lightning_sphinx_theme': [
-        'theme.conf',
-        '*.html',
-        'theme_variables.jinja',
-        *package_files('pt_lightning_sphinx_theme/static')
-    ]},
-    entry_points = {
-        'sphinx.html_themes': [
-            'pt_lightning_sphinx_theme = pt_lightning_sphinx_theme',
+    package_data={
+        'dff_sphinx_theme': [
+            'theme.conf',
+            '*.html',
+            'theme_variables.jinja',
+            *[
+                path.join('..', root, file) for (root, _, files) in walk('dff_sphinx_theme/static') for file in files
+            ]
         ]
     },
-    license= 'MIT License',
+    entry_points={
+        'sphinx.html_themes': [
+            'dff_sphinx_theme = dff_sphinx_theme',
+        ]
+    },
+    license='MIT License',
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
@@ -65,5 +49,8 @@ setup(
     ],
     install_requires=[
        'sphinx'
+    ],
+    tests_require=[
+        line for line in (line.strip() for line in open('./demo/requirements.txt')) if line and not line.startswith("#")
     ]
 )

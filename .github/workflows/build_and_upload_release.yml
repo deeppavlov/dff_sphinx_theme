@@ -8,33 +8,56 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Setup Python 3.9 🐍
+      - name: Setup NodeJS LTS 🪢
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.18
+
+      - name: Setup Python 🐍
         uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
-      - name: install latest pip, setuptools, twine + wheel
-        run: python -m pip install --upgrade pip setuptools twine wheel
+      - name: Install Requirements 📥
+        run: pip install --upgrade pip setuptools twine wheel
 
-      - name: build wheels
+      - name: Build Theme 🏗️
+        run: webpack
+
+      - name: Build Wheels ☸️
         run: |
           python setup.py bdist_wheel
           python setup.py sdist
 
-      - name: upload to pypi via twine
+      - name: Upload Binaries to PyPi via Twine 🪢
         env:
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         run: twine upload --verbose -u '__token__' dist/*
 
-      - name: upload binaries into release
+      - name: Upload Binaries to GitHub Releases 🏭
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: dist/*
-          tag: ${{ github.ref }}
           overwrite: true
           file_glob: true
+
+      - name: Install Wheels 🚃
+        run: pip install ./dist/dff_sphinx_theme-*.whl
+
+      - name: Build Demo Module 👁️
+        run: sphinx-build demo/docs web-build
+
+      - name: NoJekyll ❌
+        run: touch ./build/.nojekyll
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: ./web-build/
+          single-commit: True

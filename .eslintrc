@@ -5,7 +5,6 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
-    "@typescript-eslint/rule-name": "error",
     "prettier/prettier": "error"
   },
   "extends": [
