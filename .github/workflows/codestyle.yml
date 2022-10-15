@@ -3,8 +3,9 @@ name: codestyle
 on: [push]
 
 jobs:
-  build:
+  codestyle:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3

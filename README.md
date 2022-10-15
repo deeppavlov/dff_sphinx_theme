@@ -13,7 +13,7 @@ Build package: `python setup.py bdist_wheel && python setup.py sdist`
 For testing with demo module:
 - Build theme package (see above)
 - Install wheel locally: `pip install --force-reinstall ./dist/dff_sphinx_theme-*.whl`
-- Install demo module dependencies: `pip install -r demo/requirements.py`
+- Install demo module dependencies: `pip install -r demo/requirements.txt`
 - Build docs: `sphinx-build demo/docs web-build`
 
 Analyzed and updated source files (`.ts` and `.scss`) are marked with following header:
