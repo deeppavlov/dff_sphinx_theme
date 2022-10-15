@@ -1,3 +1,6 @@
+# Dialog Flow Framework Sphinx Theme
+Dialog Flow Framework Sphinx Theme is a sphinx theme for building DFF distributed website
+
 Install project dependencies: `npm i`  
 NB! Requires NodeJS >= 8.4.0
 
