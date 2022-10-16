@@ -32,17 +32,17 @@ jobs:
       - name: Build Theme 🏗️
         run: npx webpack
 
+      - name: Build Wheels ☸️
+        run: |
+          python setup.py bdist_wheel
+          python setup.py sdist
+
       - name: Save Artifact 💾
         uses: actions/upload-artifact@v3
         with:
           retention-days: 1
           name: dff-sphinx-theme-wheel
           path: ./dist
-
-      - name: Build Wheels ☸️
-        run: |
-          python setup.py bdist_wheel
-          python setup.py sdist
 
   upload_release_to_pypi:
     needs: build_wheels
@@ -60,7 +60,7 @@ jobs:
       - name: Install Dependencies 📥
         run: pip install --upgrade pip twine
 
-      - name: Restore Release 📚
+      - name: Restore Artifact 📚
         uses: actions/download-artifact@v3
         with:
           name: dff-sphinx-theme-wheel
@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Restore Release 📚
+      - name: Restore Artifact 📚
         uses: actions/download-artifact@v3
         with:
           name: dff-sphinx-theme-wheel
@@ -99,7 +99,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Restore Release 📚
+      - name: Restore Artifact 📚
         uses: actions/download-artifact@v3
         with:
           name: dff-sphinx-theme-wheel
@@ -132,7 +132,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Delete Release 🧽
+      - name: Delete Artifact 🧽
         uses: geekyeggo/delete-artifact@v2
         with:
           name: dff-sphinx-theme-wheel
