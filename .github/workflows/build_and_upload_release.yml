@@ -70,11 +70,14 @@ jobs:
           path: ./dist
           key: dff-sphinx-theme-wheel
 
+      - name: Get Release Tag Name 🏷️
+        run: echo "TAG=$(echo -e "from support import __version__\nprint(__version__)" | python)" >> $GITHUB_ENV
+
       - name: Upload Binaries to GitHub Releases 📦
         uses: svenstaro/upload-release-action@v2
         with:
           file: dist/*
-          tag: ${{ echo -e "from support import __version__\nprint(__version__)" | python }}
+          tag: ${{ env.TAG }}
           overwrite: true
           file_glob: true
 
