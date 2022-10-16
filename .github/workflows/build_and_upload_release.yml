@@ -22,11 +22,12 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.9
+          cache: 'pip'
 
       - name: Install Dependencies 📥
         run: |
           pip install --upgrade pip setuptools twine wheel
-          pip install -r ./demo/requirements.txt
+          pip install -r ./requirements.txt
           npm i
 
       - name: Build Theme 🏗️
@@ -47,6 +48,12 @@ jobs:
     needs: build_wheels
     runs-on: ubuntu-latest
     steps:
+
+      - name: Setup Python 🐍
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          cache: 'pip'
 
       - name: Restore Release 📚
         uses: actions/cache@v3
@@ -71,7 +78,7 @@ jobs:
           key: dff-sphinx-theme-wheel
 
       - name: Get Release Tag Name 🏷️
-        run: echo "TAG=$(echo -e "from support import __version__\nprint(__version__)" | python)" >> $GITHUB_ENV
+        run: echo "TAG=$(basename -- $(find ./dist -type f -iname "*.tar.gz") | grep -Po '\d+\.\d+\.\d+')" >> $GITHUB_ENV
 
       - name: Upload Binaries to GitHub Releases 📦
         uses: svenstaro/upload-release-action@v2
@@ -86,14 +93,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
       - name: Restore Release 📚
         uses: actions/cache@v3
         with:
           path: ./dist
           key: dff-sphinx-theme-wheel
 
-      - name: Install Wheels 📩
-        run: pip install ./dist/dff_sphinx_theme-*.whl
+      - name: Setup Python 🐍
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install Dependencies and Wheels 📩
+        run: |
+          cd ./dist && ls && cd ..
+          pip install ./dist/dff_sphinx_theme-*.whl
+          pip install -r ./demo/requirements.txt
 
       - name: Build Demo Module 👁️
         run: sphinx-build -D html_theme_options.base_url=/dff_sphinx_theme/ demo/docs web-build

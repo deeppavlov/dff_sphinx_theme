@@ -14,6 +14,10 @@ long_description = "\n".join(readme_lines)
 theme_dir = LOCATION / "dff_sphinx_theme/static"
 theme_files = [str(path.relative_to(LOCATION / "dff_sphinx_theme")) for path in theme_dir.rglob('./*/*')]
 
+reqs_file = LOCATION / "requirements.txt"
+reqs_lines = [line.strip() for line in reqs_file.open().readlines()]
+requirements = [line for line in reqs_lines if line and not line.startswith("#")]
+
 demo_reqs_file = LOCATION / "demo/requirements.txt"
 demo_reqs_lines = [line.strip() for line in demo_reqs_file.open().readlines()]
 demo_requirements = [line for line in demo_reqs_lines if line and not line.startswith("#")]
@@ -69,8 +73,6 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3 :: Only"
     ],
-    install_requires=[
-       'sphinx'
-    ],
+    install_requires=requirements,
     tests_require=demo_requirements
 )
