@@ -59,8 +59,12 @@ const config: webpack.Configuration = {
           },
         },
         {
-          from: "./support/",
+          from: "./extras/",
           to: "../extras/[name][ext]",
+        },
+        {
+          from: "./__init__.py",
+          to: "../__init__.py",
         },
         {
           from: "./theme.conf",

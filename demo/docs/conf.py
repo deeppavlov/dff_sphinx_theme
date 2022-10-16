@@ -4,7 +4,7 @@ import os
 
 from sphinx_gallery.sorting import FileNameSortKey
 
-from dff_sphinx_theme.extras import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective, sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
+from dff_sphinx_theme import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective, sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
 
 import plotly.io as pio
 pio.renderers.default = 'sphinx_gallery'
@@ -16,13 +16,14 @@ sphinx_gallery_add_source_dirs_to_path('..')
 # -- Sphinx Options --
 
 extensions = [
+    'dff_sphinx_theme',
     'sphinxcontrib.katex',
     'sphinxcontrib.httpdomain',
     'sphinx.ext.intersphinx',
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx_copybutton',
-    'sphinx_gallery.gen_gallery',
+    'sphinx_gallery.gen_gallery'
 ]
 
 suppress_warnings = ['image.nonlocal_uri']
@@ -61,7 +62,6 @@ sphinx_gallery_conf = {
 # -- Options for HTML Output --
 
 html_theme = 'dff_sphinx_theme'
-html_theme_path = ["../../"]
 html_static_path = list(glob.glob('./*/_static/'))
 # html_favicon = None
 

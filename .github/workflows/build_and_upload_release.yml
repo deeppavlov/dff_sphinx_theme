@@ -49,6 +49,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
       - name: Setup Python 🐍
         uses: actions/setup-python@v4
         with:
@@ -109,7 +112,6 @@ jobs:
 
       - name: Install Dependencies and Wheels 📩
         run: |
-          cd ./dist && ls && cd ..
           pip install ./dist/dff_sphinx_theme-*.whl
           pip install -r ./demo/requirements.txt
 

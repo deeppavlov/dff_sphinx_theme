@@ -1,7 +1,7 @@
 from pathlib import Path
 from setuptools import setup
 
-from dff_sphinx_theme.extras import __version__
+from dff_sphinx_theme import __version__
 
 
 LOCATION = Path(__file__).parent.resolve()
