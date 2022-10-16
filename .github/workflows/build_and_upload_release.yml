@@ -6,10 +6,10 @@ on:
       - 'master'
 
 jobs:
-  build_and_upload_release:
+  build_wheels:
     runs-on: ubuntu-latest
-
     steps:
+
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
@@ -37,10 +37,36 @@ jobs:
           python setup.py bdist_wheel
           python setup.py sdist
 
+      - name: Cache Release 💾
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: dff-sphinx-theme-wheel
+
+  upload_release_to_pypi:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Restore Release 📚
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: dff-sphinx-theme-wheel
+
       - name: Upload Binaries to PyPi via Twine 🪢
         env:
           TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
         run: twine upload --verbose -u '__token__' dist/*
+
+  upload_release_to_github:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Restore Release 📚
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: dff-sphinx-theme-wheel
 
       - name: Upload Binaries to GitHub Releases 📦
         uses: svenstaro/upload-release-action@v2
@@ -49,11 +75,21 @@ jobs:
           overwrite: true
           file_glob: true
 
+  deploy_demo_module_to_github_pages:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Restore Release 📚
+        uses: actions/cache@v3
+        with:
+          path: ./dist
+          key: dff-sphinx-theme-wheel
+
       - name: Install Wheels 📩
         run: pip install ./dist/dff_sphinx_theme-*.whl
 
       - name: Build Demo Module 👁️
-        run: sphinx-build -D html_theme_options.base_url=https://deeppavlov.github.io/dff_sphinx_theme/ demo/docs web-build
+        run: sphinx-build -D html_theme_options.base_url=/dff_sphinx_theme/ demo/docs web-build
 
       - name: NoJekyll ❌
         run: touch ./build/.nojekyll
