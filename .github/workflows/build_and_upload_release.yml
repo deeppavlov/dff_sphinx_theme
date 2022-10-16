@@ -32,11 +32,12 @@ jobs:
       - name: Build Theme 🏗️
         run: npx webpack
 
-      - name: Cache Release 💾
-        uses: actions/cache@v3
+      - name: Save Artifact 💾
+        uses: actions/upload-artifact@v3
         with:
+          retention-days: 1
+          name: dff-sphinx-theme-wheel
           path: ./dist
-          key: dff-sphinx-theme-wheel
 
       - name: Build Wheels ☸️
         run: |
@@ -60,10 +61,9 @@ jobs:
         run: pip install --upgrade pip twine
 
       - name: Restore Release 📚
-        uses: actions/cache@v3
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: dff-sphinx-theme-wheel
+          name: dff-sphinx-theme-wheel
 
       - name: Upload Binaries to PyPi via Twine 🪢
         env:
@@ -76,10 +76,9 @@ jobs:
     steps:
 
       - name: Restore Release 📚
-        uses: actions/cache@v3
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: dff-sphinx-theme-wheel
+          name: dff-sphinx-theme-wheel
 
       - name: Get Release Tag Name 🏷️
         run: echo "TAG=$(basename -- $(find ./dist -type f -iname "*.tar.gz") | grep -Po '\d+\.\d+\.\d+')" >> $GITHUB_ENV
@@ -101,10 +100,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Restore Release 📚
-        uses: actions/cache@v3
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: dff-sphinx-theme-wheel
+          name: dff-sphinx-theme-wheel
 
       - name: Setup Python 🐍
         uses: actions/setup-python@v4
@@ -113,7 +111,6 @@ jobs:
 
       - name: Install Dependencies and Wheels 📩
         run: |
-          ls
           pip install ./dist/dff_sphinx_theme-*.whl
           pip install -r ./demo/requirements.txt
 
@@ -129,3 +126,13 @@ jobs:
           branch: gh-pages
           folder: ./web-build/
           single-commit: True
+
+  clear_and_delete_artifacts:
+    needs: [upload_release_to_pypi, upload_release_to_github, deploy_demo_module_to_github_pages]
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Delete Release 🧽
+        uses: geekyeggo/delete-artifact@v2
+        with:
+          name: dff-sphinx-theme-wheel
