@@ -74,7 +74,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           file: dist/*
-          tag: {{ echo -e "from support import __version__\nprint(__version__)" | python }}
+          tag: ${{ echo -e "from support import __version__\nprint(__version__)" | python }}
           overwrite: true
           file_glob: true
 
