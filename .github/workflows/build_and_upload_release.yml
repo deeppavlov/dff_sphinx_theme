@@ -41,8 +41,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           retention-days: 1
-          name: dff-sphinx-theme-wheel
           path: ./dist
+          name: dff-sphinx-theme-wheel
 
   upload_release_to_pypi:
     needs: build_wheels
@@ -63,6 +63,7 @@ jobs:
       - name: Restore Artifact 📚
         uses: actions/download-artifact@v3
         with:
+          path: ./dist
           name: dff-sphinx-theme-wheel
 
       - name: Upload Binaries to PyPi via Twine 🪢
@@ -78,6 +79,7 @@ jobs:
       - name: Restore Artifact 📚
         uses: actions/download-artifact@v3
         with:
+          path: ./dist
           name: dff-sphinx-theme-wheel
 
       - name: Get Release Tag Name 🏷️
@@ -102,6 +104,7 @@ jobs:
       - name: Restore Artifact 📚
         uses: actions/download-artifact@v3
         with:
+          path: ./dist
           name: dff-sphinx-theme-wheel
 
       - name: Setup Python 🐍
