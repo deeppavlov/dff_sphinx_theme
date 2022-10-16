@@ -1,5 +1,5 @@
 from pathlib import Path
-from setuptools import setup, find_packages
+from setuptools import setup
 
 from dff_sphinx_theme.extras import __version__
 

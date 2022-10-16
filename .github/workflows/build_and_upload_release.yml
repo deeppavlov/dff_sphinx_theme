@@ -44,6 +44,7 @@ jobs:
           key: dff-sphinx-theme-wheel
 
   upload_release_to_pypi:
+    needs: build_wheels
     runs-on: ubuntu-latest
     steps:
 
@@ -59,6 +60,7 @@ jobs:
         run: twine upload --verbose -u '__token__' dist/*
 
   upload_release_to_github:
+    needs: build_wheels
     runs-on: ubuntu-latest
     steps:
 
@@ -72,10 +74,12 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           file: dist/*
+          tag: {{ echo -e "from support import __version__\nprint(__version__)" | python }}
           overwrite: true
           file_glob: true
 
   deploy_demo_module_to_github_pages:
+    needs: build_wheels
     runs-on: ubuntu-latest
     steps:
 
