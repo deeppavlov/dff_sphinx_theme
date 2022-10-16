@@ -1,22 +1,16 @@
 import glob
 import re
-import sys
 import os
 
 from sphinx_gallery.sorting import FileNameSortKey
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
-
-from dff_sphinx_theme.extras import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective
-from dff_sphinx_theme.extras import sphinx_gallery_find_example_and_build_dirs
+from dff_sphinx_theme.extras import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective, sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
 
 import plotly.io as pio
 pio.renderers.default = 'sphinx_gallery'
 
 
-sys.path.append(os.path.abspath('../'))
-for module in glob.glob('../*/'):  # TODO: move to `plugin_file_globbing`
-    sys.path.append(os.path.abspath(module))
+sphinx_gallery_add_source_dirs_to_path('..')
 
 
 # -- Sphinx Options --
@@ -51,6 +45,7 @@ pygments_style = 'default'
 # intersphinx_mapping = {
 #
 # }
+
 examples, auto_examples = sphinx_gallery_find_example_and_build_dirs('../')
 
 sphinx_gallery_conf = {
@@ -64,6 +59,7 @@ sphinx_gallery_conf = {
 }
 
 # -- Options for HTML Output --
+
 html_theme = 'dff_sphinx_theme'
 html_theme_path = ["../../"]
 html_static_path = list(glob.glob('./*/_static/'))
@@ -71,7 +67,15 @@ html_static_path = list(glob.glob('./*/_static/'))
 
 html_theme_options = {
     'logo_only': True,
-    'website_type': 'documentation'
+
+    'tab_intro_dff': '#',
+    'tab_intro_addons': '#',
+    'tab_intro_designer': '#',
+    'tab_get_started': '#',
+    'tab_tutorials': '#',
+    'tab_documentation': './',  # Matches ROOT tag, should be ONE PER MODULE, other tabs = other modules (may be relative paths)
+    'tab_ecosystem': '#',
+    'tab_about_us': '#'
 }
 
 html_show_sourcelink = False

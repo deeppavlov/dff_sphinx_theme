@@ -10,7 +10,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Setup NodeJS LTS 🪢
+      - name: Setup NodeJS LTS 🕸️
         uses: actions/setup-node@v3
         with:
           node-version: 16.18
@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install Dependencies 📦
+      - name: Install Dependencies 📥
         run: npm i
 
       - name: Run Codestyle (Scripts) 📜

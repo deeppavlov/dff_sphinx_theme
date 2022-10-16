@@ -75,12 +75,7 @@ const config: webpack.Configuration = {
 };
 
 // Use `--mode ['development' | 'production']` to control source maps generation
-// Use `--env root_path=...` to append custom string to root public path
 module.exports = (env: { root_path: string }, argv: { mode: string }) => {
   if (argv.mode == "development") config.devtool = "inline-source-map";
-  if (env.root_path)
-    config.output.publicPath = `${
-      env.root_path
-    }${config.output.publicPath.toString()}`;
   return config;
 };

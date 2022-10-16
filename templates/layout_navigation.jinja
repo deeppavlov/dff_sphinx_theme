@@ -1,7 +1,5 @@
 <!-- SIDE NAV, TOGGLES ON MOBILE -->
 
-{% set display_tab = pagename.split('/')[0] %}
-
 <div class="table-of-contents-link-wrapper">
     <span>Table of Contents</span>
     <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
@@ -21,7 +19,7 @@
                 {% if 'singlehtml' not in builder %}
                     {% set global_toc = toctree(collapse=theme_collapse_navigation|tobool, includehidden=theme_includehidden|tobool, titles_only=theme_titles_only|tobool) %}
                 {% endif %}
-                {% if global_toc and display_tab == 'documentation' %}
+                {% if global_toc %}
                     {{ global_toc|replace("<ul>", "<ul class='nested-toc-container'>") }}
                 {% else %}
                     <!-- Local TOC -->

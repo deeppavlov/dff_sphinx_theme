@@ -4,10 +4,10 @@ From https://github.com/shiftlab/lightning_sphinx_theme.
 """
 from os import path
 
-from .plugin_file_globbing import sphinx_gallery_find_example_and_build_dirs
+from .plugin_file_globbing import sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
 from .custom_directives import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 __version_full__ = __version__
 
 

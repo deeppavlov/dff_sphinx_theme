@@ -1,5 +1,3 @@
-{% set display_tab = pagename.split('/')[0] %}
-
 <div class="mobile-main-menu">
     <div class="container-fluid">
         <div class="container header-holder-mobile">
@@ -13,54 +11,54 @@
     <div class="mobile-main-menu-links-container">
         <div class="main-menu">
             <ul>
-                <li class="resources-mobile-menu-title" {%- if 'intro' in display_tab %} class="active"{%- endif %}>
+                <li class="resources-mobile-menu-title {%- if theme_tab_intro_dff == './' or theme_tab_intro_addons == './' or theme_tab_intro_designer == './' %} active{%- endif %}">
                     Intro
                 </li>
 
                 <ul class="resources-mobile-menu-items">
                     <li>
-                        <a href="{%- if display_tab == 'intro_dff' %}#{% else %}{{ pathto('intro_dff/index') }}{% endif %}">
-                            <span class="dropdown-title {%- if display_tab == 'intro_dff' %} active{% endif %}">Dialog Flow Framework</span>
+                        <a href="{{ theme_tab_intro_dff }}">
+                            <span class="dropdown-title {%- if theme_tab_intro_dff == './' %} active{% endif %}">Dialog Flow Framework</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{%- if display_tab == 'intro_addons' %}#{% else %}{{ pathto('intro_addons/index') }}{% endif %}">
-                            <span class="dropdown-title {%- if display_tab == 'intro_addons' %} active{% endif %}">Addons</span>
+                        <a href="{{ theme_tab_intro_addons }}">
+                            <span class="dropdown-title {%- if theme_tab_intro_addons == './' %} active{% endif %}">Addons</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{%- if display_tab == 'intro_designer' %}#{% else %}{{ pathto('intro_designer/index') }}{% endif %}">
-                            <span class="dropdown-title {%- if display_tab == 'intro_designer' %} active{% endif %}">Designer</span>
+                        <a href="{{ theme_tab_intro_designer }}">
+                            <span class="dropdown-title {%- if theme_tab_intro_designer == './' %} active{% endif %}">Designer</span>
                         </a>
                     </li>
                 </ul>
 
-                <li {%- if display_tab == 'get_started' %} class="active"{% endif %}>
-                    <a href="{%- if display_tab == 'get_started' %}#{% else %}{{ pathto('get_started/index') }}{% endif %}">Get Started</a>
+                <li {%- if theme_tab_get_started == './' %} class="active"{% endif %}>
+                    <a href="{{ theme_tab_get_started }}">Get Started</a>
                 </li>
 
-                <li {%- if display_tab == 'tutorials' %} class="active"{% endif %}>
-                    <a href="{%- if display_tab == 'tutorials' %}#{% else %}{{ pathto('tutorials/index') }}{% endif %}">Tutorials</a>
+                <li {%- if theme_tab_tutorials == './' %} class="active"{% endif %}>
+                    <a href="{{ theme_tab_tutorials }}">Tutorials</a>
                 </li>
 
-                <li {%- if display_tab == 'documentation' %} class="active"{% endif %}>
-                    <a href="{%- if display_tab == 'documentation' %}#{% else %}{{ pathto('documentation/index') }}{% endif %}">Documentation</a>
+                <li {%- if theme_tab_documentation == './' %} class="active"{% endif %}>
+                    <a href="{{ theme_tab_documentation }}">Documentation</a>
                 </li>
 
-                <li {%- if display_tab == 'ecosystem' %} class="active"{% endif %}>
-                    <a href="{%- if display_tab == 'ecosystem' %}#{% else %}{{ pathto('ecosystem/index') }}{% endif %}">Ecosystem</a>
+                <li {%- if theme_tab_ecosystem == './' %} class="active"{% endif %}>
+                    <a href="{{ theme_tab_ecosystem }}">Ecosystem</a>
                 </li>
 
-                <li class="resources-mobile-menu-title" {%- if 'about' in display_tab %} class="active"{%- endif %}>
+                <li class="resources-mobile-menu-title {%- if theme_tab_about_us == './' %} active{%- endif %}">
                     About
                 </li>
 
                 <ul class="resources-mobile-menu-items">
                     <li>
-                        <a href="{%- if display_tab == 'about_us' %}#{% else %}{{ pathto('about_us/index') }}{% endif %}">
-                            <span class="dropdown-title {%- if display_tab == 'about_us' %} active{% endif %}">About Us</span>
+                        <a href="{{ theme_tab_about_us }}">
+                            <span class="dropdown-title {%- if theme_tab_about_us == './' %} active{% endif %}">About Us</span>
                         </a>
                     </li>
 
