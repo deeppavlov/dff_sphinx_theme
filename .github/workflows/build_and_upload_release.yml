@@ -121,7 +121,7 @@ jobs:
         run: sphinx-build -D html_theme_options.base_url=/dff_sphinx_theme/ demo/docs web-build
 
       - name: NoJekyll ❌
-        run: touch ./build/.nojekyll
+        run: touch ./web-build/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
@@ -132,6 +132,7 @@ jobs:
 
   clear_and_delete_artifacts:
     needs: [upload_release_to_pypi, upload_release_to_github, deploy_demo_module_to_github_pages]
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     steps:
 
