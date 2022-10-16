@@ -4,7 +4,7 @@ import os
 
 from sphinx_gallery.sorting import FileNameSortKey
 
-from dff_sphinx_theme import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective, sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
+from dff_sphinx_theme.extras import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective, sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
 
 import plotly.io as pio
 pio.renderers.default = 'sphinx_gallery'

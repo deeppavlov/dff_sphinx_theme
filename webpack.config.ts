@@ -63,7 +63,7 @@ const config: webpack.Configuration = {
           to: "../extras/[name][ext]",
         },
         {
-          from: "./__init__.py",
+          from: "./theme_init.py",
           to: "../__init__.py",
         },
         {

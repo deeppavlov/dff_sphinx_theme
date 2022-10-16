@@ -11,7 +11,7 @@ Build package: `python setup.py bdist_wheel && python setup.py sdist`
 
 For testing with demo module:
 - Build theme package (see above)
-- Install wheel locally: `pip install --force-reinstall ./dist/dff_sphinx_theme-*.whl`
+- Install wheel locally: `pip install ./dist/dff_sphinx_theme-*.whl`
 - Install demo module dependencies: `pip install -r demo/requirements.txt`
 - Build docs: `sphinx-build -D html_theme_options.base_url=[DEMO_MODULE_BASE_PATH] demo/docs web-build`
 

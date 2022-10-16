@@ -22,27 +22,26 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.9
-          cache: 'pip'
 
       - name: Install Dependencies 📥
         run: |
-          pip install --upgrade pip setuptools twine wheel
+          pip install --upgrade pip setuptools wheel
           pip install -r ./requirements.txt
           npm i
 
       - name: Build Theme 🏗️
         run: npx webpack
 
-      - name: Build Wheels ☸️
-        run: |
-          python setup.py bdist_wheel
-          python setup.py sdist
-
       - name: Cache Release 💾
         uses: actions/cache@v3
         with:
           path: ./dist
           key: dff-sphinx-theme-wheel
+
+      - name: Build Wheels ☸️
+        run: |
+          python setup.py bdist_wheel
+          python setup.py sdist
 
   upload_release_to_pypi:
     needs: build_wheels
@@ -56,7 +55,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.9
-          cache: 'pip'
+
+      - name: Install Dependencies 📥
+        run: pip install --upgrade pip twine
 
       - name: Restore Release 📚
         uses: actions/cache@v3
@@ -112,6 +113,7 @@ jobs:
 
       - name: Install Dependencies and Wheels 📩
         run: |
+          ls
           pip install ./dist/dff_sphinx_theme-*.whl
           pip install -r ./demo/requirements.txt
 
