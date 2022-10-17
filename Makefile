@@ -24,7 +24,7 @@ help:
 .PHONY: help
 
 print-version:
-	$(VENV_PATH)/bin/python3 -m current_version_printer.py
+	@$(VENV_PATH)/bin/python3 -m current_version_printer.py
 .PHONY: print-version
 
 

@@ -24,13 +24,13 @@ jobs:
         run: make install-dev
 
       - name: Lint Python 🤖
-        run: make lint-python
+        run: make -o install-dev lint-python
 
       - name: Lint Scripts 📜
-        run: make lint-scripts
+        run: make -o install-dev lint-scripts
 
       - name: Lint Styles 📝
-        run: make lint-styles
+        run: make -o install-dev lint-styles
 
       - name: Lint Jinja 🥷
-        run: make lint-jinja
+        run: make -o install-dev lint-jinja

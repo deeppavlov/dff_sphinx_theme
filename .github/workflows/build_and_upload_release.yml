@@ -27,10 +27,10 @@ jobs:
         run: make install-dev
 
       - name: Build Theme 🏗️
-        run: make build-theme
+        run: make -o install-dev build-theme
 
       - name: Build Wheels ☸️
-        run: make build-wheels
+        run: make -o build-theme build-wheels
 
       - name: Save Artifact 💾
         uses: actions/upload-artifact@v3
@@ -114,7 +114,7 @@ jobs:
         run: make -o build-wheels demo-install
 
       - name: Build Demo Module 👁️
-        run: make DEMO_BASE_URL="/dff_sphinx_theme/" build-demo
+        run: make DEMO_BASE_URL="/dff_sphinx_theme/" -o demo-install build-demo
 
       - name: NoJekyll ❌
         run: touch ./web-build/.nojekyll
