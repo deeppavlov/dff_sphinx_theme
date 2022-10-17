@@ -4,7 +4,7 @@ VENV_PATH = venv
 
 DEMO_BASE_URL = /
 
-VERSIONING_FILES = Makefile setup.py demo/docs/conf.py
+VERSIONING_FILES = setup.py demo/docs/conf.py
 
 help:
 	@echo "Thanks for your interest in DFF Sphinx Theme!"
@@ -24,7 +24,7 @@ help:
 .PHONY: help
 
 print-version:
-	@echo "$(CURRENT_VERSION)"
+	$(VENV_PATH)/bin/python3 -m current_version_printer.py
 .PHONY: print-version
 
 
