@@ -15,3 +15,4 @@ Demo Versioned Module
     lists_tables
     api
     long
+    examples/demo/index

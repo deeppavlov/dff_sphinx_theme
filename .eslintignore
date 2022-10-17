@@ -5,6 +5,7 @@ build
 web-build
 doc-build
 dff_sphinx_theme
+demo/docs/examples
 dist
 
 *.egg-info

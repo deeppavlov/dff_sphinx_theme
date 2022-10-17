@@ -2,7 +2,7 @@ SHELL = /bin/bash
 
 VENV_PATH = venv
 
-DEMO_BASE_URL = /
+DEMO_BASE_URL = .
 
 VERSIONING_FILES = setup.py demo/docs/conf.py
 
@@ -57,7 +57,7 @@ build-wheels: build-theme
 .PHONY: build-wheels
 
 demo-install: venv build-wheels
-	$(VENV_PATH)/bin/pip install ./dist/dff_sphinx_theme-*.whl
+	$(VENV_PATH)/bin/pip install --force-reinstall ./dist/dff_sphinx_theme-*.whl
 	$(VENV_PATH)/bin/pip install -r ./demo/requirements.txt
 .PHONY: build-install
 
@@ -127,13 +127,13 @@ format-python: install-dev
 
 
 version-patch: venv
-	$(VENV_PATH)/bin/bump2version patch $(VERSIONING_FILES)
+	$(VENV_PATH)/bin/bump2version patch $(VERSIONING_FILES) --allow-dirty
 .PHONY: version-patch
 
 version-minor: venv
-	$(VENV_PATH)/bin/bump2version minor $(VERSIONING_FILES)
+	$(VENV_PATH)/bin/bump2version minor $(VERSIONING_FILES) --allow-dirty
 .PHONY: version-minor
 
 version-major: venv
-	$(VENV_PATH)/bin/bump2version major $(VERSIONING_FILES)
+	$(VENV_PATH)/bin/bump2version major $(VERSIONING_FILES) --allow-dirty
 .PHONY: version-major

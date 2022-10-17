@@ -30,8 +30,8 @@ exclude_patterns = ['**/README.rst']
 
 project = u'DFF Sphinx Theme Demo'
 copyright = u'DFF'
-version = "0.1.1"
-release = "0.1.1"
+version = "0.1.2"
+release = "0.1.2"
 language = 'en'
 
 pygments_style = 'default'
@@ -43,7 +43,7 @@ pygments_style = 'default'
 #
 # }
 
-examples, auto_examples = sphinx_gallery_find_example_and_build_dirs('../')
+examples, auto_examples = sphinx_gallery_find_example_and_build_dirs('../examples', './examples')
 
 sphinx_gallery_conf = {
     'examples_dirs': examples,
