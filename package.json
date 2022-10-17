@@ -2,12 +2,6 @@
   "name": "dff_sphinx_theme",
   "version": "0.0.1",
   "private": true,
-  "scripts": {
-    "scripts-lint": "eslint '**/*.ts'",
-    "styles-lint": "stylelint '**/*.scss'",
-    "jinja-lint": "djlint templates",
-    "lint": "npm run styles-lint && npm run scripts-lint && npm run jinja-lint"
-  },
   "devDependencies": {
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.4",

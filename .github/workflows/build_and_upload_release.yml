@@ -24,18 +24,13 @@ jobs:
           python-version: 3.9
 
       - name: Install Dependencies 📥
-        run: |
-          pip install --upgrade pip setuptools wheel
-          pip install -r ./requirements.txt
-          npm i
+        run: make install-dev
 
       - name: Build Theme 🏗️
-        run: npx webpack
+        run: make build-theme
 
       - name: Build Wheels ☸️
-        run: |
-          python setup.py bdist_wheel
-          python setup.py sdist
+        run: make build-wheels
 
       - name: Save Artifact 💾
         uses: actions/upload-artifact@v3
@@ -83,7 +78,7 @@ jobs:
           name: dff-sphinx-theme-wheel
 
       - name: Get Release Tag Name 🏷️
-        run: echo "TAG=$(basename -- $(find ./dist -type f -iname "*.tar.gz") | grep -Po '\d+\.\d+\.\d+')" >> $GITHUB_ENV
+        run: echo "TAG=$(make print-version)" >> $GITHUB_ENV
 
       - name: Upload Binaries to GitHub Releases 📦
         uses: svenstaro/upload-release-action@v2
@@ -113,12 +108,10 @@ jobs:
           python-version: 3.9
 
       - name: Install Dependencies and Wheels 📩
-        run: |
-          pip install ./dist/dff_sphinx_theme-*.whl
-          pip install -r ./demo/requirements.txt
+        run: make -o build-wheels demo-install
 
       - name: Build Demo Module 👁️
-        run: sphinx-build -D html_theme_options.base_url=/dff_sphinx_theme/ demo/docs web-build
+        run: make DEMO_BASE_URL="/dff_sphinx_theme/" build-demo
 
       - name: NoJekyll ❌
         run: touch ./web-build/.nojekyll

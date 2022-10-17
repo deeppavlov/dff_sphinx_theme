@@ -7,10 +7,6 @@ from os import path
 from .extras import *
 
 
-__version__ = '0.0.2'
-__version_full__ = __version__
-
-
 def get_html_theme_path():
     """Return list of HTML theme paths."""
     return path.abspath(path.dirname(path.dirname(__file__)))

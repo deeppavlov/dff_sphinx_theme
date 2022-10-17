@@ -21,13 +21,16 @@ jobs:
           python-version: 3.9
 
       - name: Install Dependencies 📥
-        run: npm i
+        run: make install-dev
 
-      - name: Run Codestyle (Scripts) 📜
-        run: npm run scripts-lint
+      - name: Lint Python 🤖
+        run: make lint-python
 
-      - name: Run Codestyle (Styles) 📝
-        run: npm run styles-lint
+      - name: Lint Scripts 📜
+        run: make lint-scripts
 
-      - name: Run Codestyle (Jinja) 🥷
-        run: npm run jinja-lint
+      - name: Lint Styles 📝
+        run: make lint-styles
+
+      - name: Lint Jinja 🥷
+        run: make lint-jinja

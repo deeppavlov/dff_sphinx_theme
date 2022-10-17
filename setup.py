@@ -1,8 +1,6 @@
 from pathlib import Path
 from setuptools import setup
 
-from dff_sphinx_theme import __version__
-
 
 LOCATION = Path(__file__).parent.resolve()
 
@@ -25,7 +23,7 @@ demo_requirements = [line for line in demo_reqs_lines if line and not line.start
 
 setup(
     name='dff_sphinx_theme',
-    version=__version__,
+    version="0.0.2",
     author='Alexander Sergeev',
     author_email='shveitsar215@gmail.com',
     url="https://github.com/deeppavlov/dff_sphinx_theme",

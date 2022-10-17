@@ -37,7 +37,12 @@ I'm sorry to release the theme in this condition.
 However, I don't have enough time to fix it and most importantly I don't know what website will look like yet, so it's impossible to check if most of the elements work, how they work and if they are needed at all.
 Dear future programmer of DFF Sphinx theme, please accept my apologies and be strong.
 
-**TODO**:
+**Global TODO**:
+- Add `format` rules to Makefile
+- Add testing
+- Add docs (maybe insert demo module into docs)
+
+**Local TODO**:
 - Replace `.ts` string concatenation with `-wrapped strings
 - Add pencil icon (if needed) `_static/pencil-16.png`
 - Fix button from `sphinx_copybutton` plugin

@@ -1,12 +1,14 @@
 .idea/
 venv/
+
 build/
 web-build/
+doc-build/
+dff_sphinx_theme/
 dist/
+
 **/*.egg-info/
 **/node_modules/
-
-dff_sphinx_theme/
 
 yarn.lock
 package-lock.json
