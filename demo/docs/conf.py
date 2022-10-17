@@ -1,13 +1,9 @@
-import glob
 import re
 import os
 
 from sphinx_gallery.sorting import FileNameSortKey
 
-from dff_sphinx_theme.extras import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective, sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
-
-import plotly.io as pio
-pio.renderers.default = 'sphinx_gallery'
+from dff_sphinx_theme.extras import sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
 
 
 sphinx_gallery_add_source_dirs_to_path('..')
@@ -32,10 +28,10 @@ source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = ['**/README.rst']
 
-project = u'PyTorch Sphinx Theme'
-copyright = u'PyTorch'
-version = "0.1"
-release = "0.1"
+project = u'DFF Sphinx Theme Demo'
+copyright = u'DFF'
+version = "0.1.0"
+release = "0.1.0"
 language = 'en'
 
 pygments_style = 'default'
@@ -62,7 +58,7 @@ sphinx_gallery_conf = {
 # -- Options for HTML Output --
 
 html_theme = 'dff_sphinx_theme'
-html_static_path = list(glob.glob('./*/_static/'))
+html_static_path = []
 # html_favicon = None
 
 html_theme_options = {
@@ -87,10 +83,4 @@ htmlhelp_basename = 'DFFSphinxThemeDemoDoc'
 # -- Options for Manual Page Output --
 
 # -- Setup Configuration --
-def setup(app):
-    # Custom directives
-    app.add_directive('includenodoc', IncludeDirective)
-    app.add_directive('galleryitem', GalleryItemDirective)
-    app.add_directive('customgalleryitem', CustomGalleryItemDirective)
-    app.add_directive('customcarditem', CustomCardItemDirective)
-    app.add_directive('customcalloutitem', CustomCalloutItemDirective)
+# def setup(app):
