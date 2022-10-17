@@ -78,7 +78,9 @@ build: build-wheels build-demo build-doc
 
 
 lint-python: install-dev
-	$(VENV_PATH)/bin/flake8 --max-line-length 120 df_runner
+	$(VENV_PATH)/bin/flake8 --max-line-length 120 extras/
+	$(VENV_PATH)/bin/flake8 --max-line-length 120 setup.py
+	$(VENV_PATH)/bin/flake8 --max-line-length 120 theme_init.py
 .PHONY: lint-python
 
 lint-scripts: install-dev
