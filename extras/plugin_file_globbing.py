@@ -19,7 +19,7 @@ def _get_packages(path: str) -> List[Path]:
 
 def sphinx_gallery_find_example_and_build_dirs(source: str, dest: str) -> Tuple[List[str], List[str]]:
     destination = Path(dest)
-    shutil.rmtree(destination)
+    shutil.rmtree(destination, ignore_errors=True)
 
     examples_paths = _get_packages(source)
     auto_examples_paths = [destination / package.name for package in examples_paths]
