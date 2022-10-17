@@ -5,7 +5,6 @@ VENV_PATH = venv
 DEMO_BASE_URL = /
 
 VERSIONING_FILES = Makefile setup.py
-CURRENT_VERSION = 0.0.2
 
 help:
 	@echo "Thanks for your interest in DFF Sphinx Theme!"
@@ -128,13 +127,13 @@ format-python: install-dev
 
 
 version-patch: venv
-	$(VENV_PATH)/bin/bump2version --current-version $(CURRENT_VERSION) patch $(VERSIONING_FILES)
+	$(VENV_PATH)/bin/bump2version patch $(VERSIONING_FILES)
 .PHONY: version-patch
 
 version-minor: venv
-	$(VENV_PATH)/bin/bump2version --current-version $(CURRENT_VERSION) minor $(VERSIONING_FILES)
+	$(VENV_PATH)/bin/bump2version minor $(VERSIONING_FILES)
 .PHONY: version-minor
 
 version-major: venv
-	$(VENV_PATH)/bin/bump2version --current-version $(CURRENT_VERSION) major $(VERSIONING_FILES)
+	$(VENV_PATH)/bin/bump2version major $(VERSIONING_FILES)
 .PHONY: version-major
