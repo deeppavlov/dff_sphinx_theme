@@ -2,7 +2,7 @@
 Dialog Flow Framework Sphinx Theme is a sphinx theme for building DFF distributed website
 
 Install project with demo module: ` make DEMO_BASE_URL="[DEMO_MODULE_BASE_PATH]" build-demo`  
-NB! Requires NodeJS >= 8.4.0
+NB! Requires NodeJS >= 8.4.0 and Python >= 3.7 (compatible with [dff](https://github.com/deeppavlov/dialog_flow_framework)).
 
 Analyzed and updated source files (`.ts` and `.scss`) are marked with following header:
 ```typescript
