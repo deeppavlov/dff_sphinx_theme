@@ -21,7 +21,7 @@ jobs:
       - name: Setup Python 🐍
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: 3.7
 
       - name: Install Dependencies 📥
         run: make install-dev
@@ -50,7 +50,7 @@ jobs:
       - name: Setup Python 🐍
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: 3.7
 
       - name: Install Dependencies 📥
         run: pip install --upgrade pip twine
@@ -108,7 +108,7 @@ jobs:
       - name: Setup Python 🐍
         uses: actions/setup-python@v4
         with:
-          python-version: 3.9
+          python-version: 3.7
 
       - name: Install Dependencies and Wheels 📩
         run: make -o build-wheels demo-install

@@ -23,7 +23,7 @@ demo_requirements = [line for line in demo_reqs_lines if line and not line.start
 
 setup(
     name='dff_sphinx_theme',
-    version="0.1.3",
+    version="0.1.4",
     author='Alexander Sergeev',
     author_email='shveitsar215@gmail.com',
     url="https://github.com/deeppavlov/dff_sphinx_theme",
@@ -65,10 +65,11 @@ setup(
         "Topic :: Internet",
         "Topic :: Software Development :: Documentation",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3 :: Only"
     ],
     install_requires=requirements,
