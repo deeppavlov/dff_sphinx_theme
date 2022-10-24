@@ -1,28 +1,16 @@
-import fnmatch
-import glob
 import os
 import shutil
 import sys
 from pathlib import Path
-from typing import Iterable, List, Tuple, cast
+from typing import List, Tuple, cast
 
 
-def _fnmatchcase_any(filename: str, patterns: Iterable[str]) -> bool:
-    return any([fnmatch.fnmatchcase(filename, pattern) for pattern in patterns])
-
-
-def _get_packages(path: str) -> List[Path]:
-    work_dir = Path(path)
-    exception_dirs = [".", "..", "*.egg-info", "__pycache__"]
-    return [f for f in work_dir.glob('*') if f.is_dir() and not _fnmatchcase_any(f.name, exception_dirs)]
-
-
-def sphinx_gallery_find_example_and_build_dirs(source: str, dest: str) -> Tuple[List[str], List[str]]:
+def sphinx_gallery_find_example_and_build_dirs(dest: str, *sources: str) -> Tuple[List[str], List[str]]:
     destination = Path(dest)
     shutil.rmtree(destination, ignore_errors=True)
 
-    examples_paths = _get_packages(source)
-    auto_examples_paths = [destination / package.name for package in examples_paths]
+    examples_paths = [Path(source) for source in sources]
+    auto_examples_paths = [destination / example.name for example in examples_paths]
 
     examples_pairs = [(e, ae) for e, ae in zip(examples_paths, auto_examples_paths) if e.exists() and e.is_dir()]
     for example, auto_example in examples_pairs:
