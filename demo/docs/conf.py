@@ -43,7 +43,7 @@ pygments_style = 'default'
 #
 # }
 
-examples, auto_examples = sphinx_gallery_find_example_and_build_dirs('../examples', './examples')
+examples, auto_examples = sphinx_gallery_find_example_and_build_dirs('./examples', '../examples')
 
 sphinx_gallery_conf = {
     'examples_dirs': examples,
