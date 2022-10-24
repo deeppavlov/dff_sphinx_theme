@@ -32,7 +32,6 @@ def sphinx_gallery_find_example_and_build_dirs(source: str, dest: str) -> Tuple[
     return cast(Tuple[List[str], List[str]], examples if len(examples) == 2 else ([], []))
 
 
-def sphinx_gallery_add_source_dirs_to_path(path: str):
-    sys.path.append(os.path.abspath(f'{path}/'))
-    for module in glob.glob(f'{path}/*/'):
+def sphinx_gallery_add_source_dirs_to_path(*paths: str):
+    for module in paths:
         sys.path.append(os.path.abspath(module))

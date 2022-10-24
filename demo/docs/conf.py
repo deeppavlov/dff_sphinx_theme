@@ -6,7 +6,7 @@ from sphinx_gallery.sorting import FileNameSortKey
 from dff_sphinx_theme.extras import sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
 
 
-sphinx_gallery_add_source_dirs_to_path('..')
+sphinx_gallery_add_source_dirs_to_path('../test_py_module/')
 
 
 # -- Sphinx Options --
@@ -30,8 +30,8 @@ exclude_patterns = ['**/README.rst']
 
 project = u'DFF Sphinx Theme Demo'
 copyright = u'DFF'
-version = "0.1.4"
-release = "0.1.4"
+version = "0.1.5"
+release = "0.1.5"
 language = 'en'
 
 pygments_style = 'default'
