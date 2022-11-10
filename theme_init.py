@@ -26,3 +26,7 @@ def setup(app):
     app.add_directive('customgalleryitem', CustomGalleryItemDirective)
     app.add_directive('customcarditem', CustomCardItemDirective)
     app.add_directive('customcalloutitem', CustomCalloutItemDirective)
+    return {
+        'parallel_read_safe': True,
+        'parallel_write_safe': True
+    }
