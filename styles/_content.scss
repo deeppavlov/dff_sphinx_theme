@@ -76,12 +76,6 @@ article.pytorch-article {
 
   ul,
   ol{
-    margin: rem(24px) 0 rem(50px) 0;
-
-    @include desktop {
-      padding-left: rem(100px);
-    }
-
     li {
       margin-bottom: rem(10px);
     }
