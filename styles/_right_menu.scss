@@ -43,21 +43,21 @@
 
 // Expanding elements
 
-.pytorch-right-menu a.reference.internal {
-  &.expanded:before {
-    content: "-";
-    font-family: monospace;
-    position: absolute;
-    left: -12px;
-  }
-
-  &.not-expanded:before {
-    content: "+";
-    font-family: monospace;
-    position: absolute;
-    left: -12px;
-  }
-}
+// .pytorch-right-menu a.reference.internal {
+//  &.expanded:before {
+//    content: "-";
+//    font-family: monospace;
+//    position: absolute;
+//    left: -12px;
+//  }
+//
+//  &.not-expanded:before {
+//    content: "+";
+//    font-family: monospace;
+//    position: absolute;
+//    left: -12px;
+//  }
+//}
 
 
 
