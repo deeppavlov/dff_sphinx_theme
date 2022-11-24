@@ -30,8 +30,8 @@ exclude_patterns = ['**/README.rst']
 
 project = u'DFF Sphinx Theme Demo'
 copyright = u'DFF'
-version = "0.1.7"
-release = "0.1.7"
+version = "0.1.8"
+release = "0.1.8"
 language = 'en'
 
 pygments_style = 'default'
