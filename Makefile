@@ -31,15 +31,11 @@ print-version:
 
 venv:
 	python3 -m venv $(VENV_PATH)
-
-install: venv
 	$(VENV_PATH)/bin/pip install -r requirements.txt
-.PHONY: install
-
-install-dev: install
 	$(VENV_PATH)/bin/pip install --upgrade pip setuptools wheel bump2version flake8 black
+
+node_modules:
 	npm install
-.PHONY: install-dev
 
 # install-test: install
 #	$(VENV_PATH)/bin/pip install --upgrade pytest pytest-cov pytest-asyncio
@@ -47,11 +43,12 @@ install-dev: install
 
 
 
-build-theme: install-dev
+build-theme: node_modules
 	npx webpack
 .PHONY: build-theme
 
 build-wheels: build-theme
+	rm -rf ./dict/*
 	$(VENV_PATH)/bin/python setup.py bdist_wheel
 	$(VENV_PATH)/bin/python setup.py sdist
 .PHONY: build-wheels
@@ -62,6 +59,7 @@ demo-install: venv build-wheels
 .PHONY: build-install
 
 build-demo: demo-install
+	rm -rf demo/docs/examples/*
 	$(VENV_PATH)/bin/sphinx-build -M clean demo/docs web-build
 	$(VENV_PATH)/bin/sphinx-build -M html -D html_theme_options.base_url=$(DEMO_BASE_URL) demo/docs web-build
 .PHONY: build-demo
@@ -71,7 +69,7 @@ build-doc: demo-install
 	$(VENV_PATH)/bin/sphinx-build -M html docs doc-build
 .PHONY: build-doc
 
-build: build-wheels build-demo build-doc
+build: build-wheels build-demo # build-doc
 .PHONY: build
 
 

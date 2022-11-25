@@ -1,12 +1,12 @@
-import re
 import os
+import sys
 
-from sphinx_gallery.sorting import FileNameSortKey
+from jupytext import jupytext
 
-from dff_sphinx_theme.extras import sphinx_gallery_find_example_and_build_dirs, sphinx_gallery_add_source_dirs_to_path
+sys.path.append(os.path.abspath("."))
+sys.path.append(os.path.abspath(".."))
 
-
-sphinx_gallery_add_source_dirs_to_path('../test_py_module/')
+from generate_notebook_links import generate_example_links_for_notebook_creation
 
 
 # -- Sphinx Options --
@@ -19,7 +19,9 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx_copybutton',
-    'sphinx_gallery.gen_gallery'
+    'sphinx_autodoc_typehints',
+    'nbsphinx',
+    'sphinx_gallery.load_style',
 ]
 
 suppress_warnings = ['image.nonlocal_uri']
@@ -43,17 +45,15 @@ pygments_style = 'default'
 #
 # }
 
-examples, auto_examples = sphinx_gallery_find_example_and_build_dirs('./examples', '../examples/demo')
+exclude_patterns = ["*.py", "**/_*.py"]
+nbsphinx_custom_formats = {".py": lambda s: jupytext.reads(s, "py:percent")}
 
-sphinx_gallery_conf = {
-    'examples_dirs': examples,
-    'gallery_dirs': auto_examples,
-    'filename_pattern': '.py',
-    'reset_argv': lambda _, __: ["-a"],
-    'within_subsection_order': FileNameSortKey,
-    'ignore_pattern': f'{re.escape(os.sep)}_',
-    'line_numbers': True,
-}
+nbsphinx_prolog = """
+:tutorial_name: {{ env.docname }}
+:tutorial_dist: demo/docs
+:tutorial_source: demo
+:github_url: deeppavlov/dff_sphinx_theme
+"""
 
 # -- Options for HTML Output --
 
@@ -83,4 +83,5 @@ htmlhelp_basename = 'DFFSphinxThemeDemoDoc'
 # -- Options for Manual Page Output --
 
 # -- Setup Configuration --
-# def setup(app):
+def setup(_):
+    generate_example_links_for_notebook_creation(["demo/examples/1_basic_example.py"])

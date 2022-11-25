@@ -12,6 +12,12 @@
     {%- set titlesuffix = "" %}
 {%- endif %}
 
+{% if meta is defined and meta is not none %}
+    {% set check_meta = True %}
+{% else %}
+    {% set check_meta = False %}
+{% endif %}
+
 {%- set lang_attr = 'en' if language == None else (language | replace('_', '-')) %}
 
 {% import 'theme_variables.jinja' as theme_variables %}
@@ -46,9 +52,9 @@
 
             <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
                 <div class="pytorch-content-left">
-                    {% if theme_tutorial_name != '' %}
+                    {% if check_meta %}
                         <div class="pytorch-call-to-action-links">
-                            <div id="tutorial-type">{{ theme_tutorial_name }}</div>
+                            <div id="tutorial-type" data-name="{{ meta['tutorial_name'] }}" data-dist="{{ meta['tutorial_dist'] }}" data-source="{{ meta['tutorial_source'] }}" data-github="{{ meta['github_url'] }}"></div>
 
                             <div id="google-colab-link">
                                 <span class="pytorch-colab call-to-action-any"></span>

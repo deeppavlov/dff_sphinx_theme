@@ -6,21 +6,21 @@ $("table").removeAttr("border");
 // This code replaces the default sphinx gallery download buttons
 // with the 3 download buttons at the top of the page
 
-const downloadNote = $(".sphx-glr-download-link-note.admonition.note");
-if (downloadNote.length >= 1) {
-    const tutorialUrlArray = $("#tutorial-type").text().split('/');
-    tutorialUrlArray[0] = tutorialUrlArray[0] + "_source";
+const ctal = $(".pytorch-call-to-action-links");
+if (ctal.length && ctal.is(":visible")) {
+    const tutorialType = $("#tutorial-type");
+    const tutorialName = tutorialType.data('name');
+    const tutorialDist = tutorialType.data('dist');
+    const tutorialSource = tutorialType.data('source');
+    const tutorialUrl = tutorialType.data('github');
 
-    const githubLink = "https://github.com/pytorch/tutorials/blob/master/" + tutorialUrlArray.join("/") + ".py";
-    const notebookLink = ($(".reference.download")[1] as HTMLAnchorElement).href;
-    const notebookDownloadPath = notebookLink.split('_downloads')[1];
-    const colabLink = "https://colab.research.google.com/github/pytorch/tutorials/blob/gh-pages/_downloads" + notebookDownloadPath;
+    const githubLink = `https://github.com/${tutorialUrl}/blob/master/${tutorialDist}/${tutorialName}.py`;
+    const notebookLink = `../${tutorialSource}/${tutorialName}.ipynb`;
+    const colabLink = `https://colab.research.google.com/github/${tutorialUrl}/blob/gh-pages/${tutorialDist}/${tutorialName}.ipynb`;
 
-    $("#google-colab-link").wrap("<a href=" + colabLink + " data-behavior='call-to-action-event' data-response='Run in Google Colab' target='_blank'/>");
-    $("#download-notebook-link").wrap("<a href=" + notebookLink + " data-behavior='call-to-action-event' data-response='Download Notebook'/>");
-    $("#github-view-link").wrap("<a href=" + githubLink + " data-behavior='call-to-action-event' data-response='View on Github' target='_blank'/>");
-} else {
-    $(".pytorch-call-to-action-links").hide();
+    $("#google-colab-link").wrap(`<a href=${colabLink} data-behavior='call-to-action-event' data-response='Run in Google Colab' target='_blank'/>`);
+    $("#download-notebook-link").wrap(`<a href=${notebookLink} data-behavior='call-to-action-event' data-response='Download Notebook'/>`);
+    $("#github-view-link").wrap(`<a href=${githubLink} data-behavior='call-to-action-event' data-response='View on Github' target='_blank'/>`);
 }
 
 
