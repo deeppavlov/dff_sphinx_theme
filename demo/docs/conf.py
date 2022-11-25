@@ -50,8 +50,7 @@ nbsphinx_custom_formats = {".py": lambda s: jupytext.reads(s, "py:percent")}
 
 nbsphinx_prolog = """
 :tutorial_name: {{ env.docname }}
-:tutorial_dist: demo/docs
-:tutorial_source: demo
+:tutorial_path: demo
 :github_url: deeppavlov/dff_sphinx_theme
 """
 

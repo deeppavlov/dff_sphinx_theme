@@ -10,13 +10,12 @@ const ctal = $(".pytorch-call-to-action-links");
 if (ctal.length && ctal.is(":visible")) {
     const tutorialType = $("#tutorial-type");
     const tutorialName = tutorialType.data('name');
-    const tutorialDist = tutorialType.data('dist');
-    const tutorialSource = tutorialType.data('source');
+    const tutorialPath = tutorialType.data('path');
     const tutorialUrl = tutorialType.data('github');
 
-    const githubLink = `https://github.com/${tutorialUrl}/blob/master/${tutorialDist}/${tutorialName}.py`;
-    const notebookLink = `../${tutorialSource}/${tutorialName}.ipynb`;
-    const colabLink = `https://colab.research.google.com/github/${tutorialUrl}/blob/gh-pages/${tutorialDist}/${tutorialName}.ipynb`;
+    const githubLink = `https://github.com/${tutorialUrl}/blob/master/${tutorialPath}/${tutorialName}.py`;
+    const notebookLink = `../${tutorialPath}/${tutorialName}.ipynb`;
+    const colabLink = `https://colab.research.google.com/github/${tutorialUrl}/blob/gh-pages/${tutorialPath}/${tutorialName}.ipynb`;
 
     $("#google-colab-link").wrap(`<a href=${colabLink} data-behavior='call-to-action-event' data-response='Run in Google Colab' target='_blank'/>`);
     $("#download-notebook-link").wrap(`<a href=${notebookLink} data-behavior='call-to-action-event' data-response='Download Notebook'/>`);
