@@ -14,8 +14,8 @@ if (ctal.length && ctal.is(":visible")) {
     const tutorialUrl = tutorialType.data('github');
 
     const githubLink = `https://github.com/${tutorialUrl}/blob/master/${tutorialPath}/${tutorialName}.py`;
-    const notebookLink = `../${tutorialPath}/${tutorialName}.ipynb`;
-    const colabLink = `https://colab.research.google.com/github/${tutorialUrl}/blob/gh-pages/${tutorialPath}/${tutorialName}.ipynb`;
+    const notebookLink = `../${tutorialName}.ipynb`;
+    const colabLink = `https://colab.research.google.com/github/${tutorialUrl}/blob/gh-pages/${tutorialName}.ipynb`;
 
     $("#google-colab-link").wrap(`<a href=${colabLink} data-behavior='call-to-action-event' data-response='Run in Google Colab' target='_blank'/>`);
     $("#download-notebook-link").wrap(`<a href=${notebookLink} data-behavior='call-to-action-event' data-response='Download Notebook'/>`);
