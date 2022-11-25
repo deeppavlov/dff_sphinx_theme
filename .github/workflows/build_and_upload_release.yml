@@ -24,10 +24,12 @@ jobs:
           python-version: 3.7
 
       - name: Install Dependencies 📥
-        run: make install-dev
+        run: |
+          make venv
+          make node_modules
 
       - name: Build Theme 🏗️
-        run: make -o install-dev build-theme
+        run: make -o node_modules build-theme
 
       - name: Build Wheels ☸️
         run: make -o build-theme build-wheels
