@@ -174,7 +174,7 @@ article.pytorch-article {
   .main-content {
     padding-top: rem(15px);
     ul.simple {
-      padding-bottom: rem(20px);
+      padding-inline-start: 10px;
     }
     .note, .warning {
       &:nth-child(1) {
