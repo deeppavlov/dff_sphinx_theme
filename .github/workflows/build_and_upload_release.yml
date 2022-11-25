@@ -115,6 +115,9 @@ jobs:
       - name: Install Dependencies and Wheels 📩
         run: make -o build-wheels demo-install
 
+      - name: Install Pandoc 🐼
+        run: sudo apt install pandoc
+
       - name: Build Demo Module 👁️
         run: make DEMO_BASE_URL="/dff_sphinx_theme/" -o demo-install build-demo
 
