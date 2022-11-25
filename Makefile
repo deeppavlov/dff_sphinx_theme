@@ -61,7 +61,7 @@ demo-install: venv build-wheels
 build-demo: demo-install
 	rm -rf demo/docs/examples/*
 	$(VENV_PATH)/bin/sphinx-build -M clean demo/docs web-build
-	$(VENV_PATH)/bin/sphinx-build -M html -D html_theme_options.base_url=$(DEMO_BASE_URL) demo/docs web-build
+	$(VENV_PATH)/bin/sphinx-build -M html -D html_baseurl=$(DEMO_BASE_URL) demo/docs web-build
 .PHONY: build-demo
 
 build-doc: demo-install
