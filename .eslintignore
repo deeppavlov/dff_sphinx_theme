@@ -2,7 +2,7 @@
 venv
 
 build
-web-build
+demo-build
 doc-build
 dff_sphinx_theme
 demo/docs/examples

@@ -2,7 +2,7 @@
 venv/
 
 build/
-web-build/
+demo-build/
 doc-build/
 dff_sphinx_theme/
 demo/docs/examples/
@@ -13,3 +13,4 @@ dist/
 
 yarn.lock
 package-lock.json
+demo/requirements-lock.txt

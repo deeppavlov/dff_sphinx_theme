@@ -1,10 +1,10 @@
 SHELL = /bin/bash
 
 VENV_PATH = venv
+PATH := $(VENV_PATH)/bin:$(PATH)
 
 DEMO_BASE_URL = .
 
-VERSIONING_FILES = setup.py demo/docs/conf.py
 
 help:
 	@echo "Thanks for your interest in DFF Sphinx Theme!"
@@ -31,8 +31,8 @@ print-version:
 
 venv:
 	python3 -m venv $(VENV_PATH)
-	$(VENV_PATH)/bin/pip install -r requirements.txt
-	$(VENV_PATH)/bin/pip install --upgrade pip setuptools wheel bump2version flake8 black
+	pip install -r requirements.txt
+	pip install --upgrade pip setuptools wheel bump2version flake8 black
 
 node_modules:
 	npm install
@@ -43,52 +43,49 @@ node_modules:
 
 
 
-build-theme: node_modules
+dff_sphinx_theme: node_modules
 	npx webpack
-.PHONY: build-theme
 
-build-wheels: build-theme
-	rm -rf ./dict/*
-	$(VENV_PATH)/bin/python setup.py bdist_wheel
-	$(VENV_PATH)/bin/python setup.py sdist
-.PHONY: build-wheels
+dist: venv dff_sphinx_theme
+	python3 setup.py bdist_wheel
+	python3 setup.py sdist
 
-demo-install: venv build-wheels
-	$(VENV_PATH)/bin/pip install --force-reinstall ./dist/dff_sphinx_theme-*.whl
-	$(VENV_PATH)/bin/pip install -r ./demo/requirements.txt
-.PHONY: build-install
+demo/requirements-lock.txt: dist
+	pip install --force-reinstall ./dist/dff_sphinx_theme-*.whl
+	pip install -r ./demo/requirements.txt
+	pip freeze > ./demo/requirements-lock.txt
 
-build-demo: demo-install
-	rm -rf demo/docs/examples/*
-	$(VENV_PATH)/bin/sphinx-build -M clean demo/docs web-build
-	$(VENV_PATH)/bin/sphinx-build -M html -D html_baseurl=$(DEMO_BASE_URL) demo/docs web-build
-.PHONY: build-demo
+demo-build: demo/requirements-lock.txt
+	sphinx-build -M clean demo/docs demo-build
+	sphinx-build -M html -D html_baseurl=$(DEMO_BASE_URL) demo/docs demo-build
 
-build-doc: demo-install
-	$(VENV_PATH)/bin/sphinx-build -M clean docs doc-build
-	$(VENV_PATH)/bin/sphinx-build -M html docs doc-build
-.PHONY: build-doc
+doc-build: dist
+	sphinx-build -M clean docs doc-build
+	sphinx-build -M html docs doc-build
 
-build: build-wheels build-demo # build-doc
+build: dist demo-build # doc-build
 .PHONY: build
 
+rebuild: clean build
+.PHONY: rebuild
 
 
-lint-python: install-dev
-	$(VENV_PATH)/bin/flake8 --max-line-length 120 extras/
-	$(VENV_PATH)/bin/flake8 --max-line-length 120 setup.py
-	$(VENV_PATH)/bin/flake8 --max-line-length 120 theme_init.py
+
+lint-python: venv
+	flake8 --max-line-length 120 extras/
+	flake8 --max-line-length 120 setup.py
+	flake8 --max-line-length 120 theme_init.py
 .PHONY: lint-python
 
-lint-scripts: install-dev
+lint-scripts: node_modules
 	npx eslint '**/*.ts'
 .PHONY: lint-scripts
 
-lint-styles: install-dev
+lint-styles: node_modules
 	npx stylelint '**/*.scss'
 .PHONY: lint-styles
 
-lint-jinja: install-dev
+lint-jinja: venv node_modules
 	npx djlint templates
 .PHONY: lint-jinja
 
@@ -97,8 +94,8 @@ lint: lint-python lint-scripts lint-styles lint-jinja
 
 
 
-format-python: install-dev
-	$(VENV_PATH)/bin/black --exclude="setup\.py" --line-length=120 .
+format-python: venv
+	black --exclude="setup\.py" --line-length=120 .
 .PHONY: format-python
 
 # TODO: add format-scripts
@@ -125,13 +122,31 @@ format-python: install-dev
 
 
 version-patch: venv
-	$(VENV_PATH)/bin/bump2version patch $(VERSIONING_FILES) --allow-dirty
+	bump2version patch $(VERSIONING_FILES) --allow-dirty
 .PHONY: version-patch
 
 version-minor: venv
-	$(VENV_PATH)/bin/bump2version minor $(VERSIONING_FILES) --allow-dirty
+	bump2version minor $(VERSIONING_FILES) --allow-dirty
 .PHONY: version-minor
 
 version-major: venv
-	$(VENV_PATH)/bin/bump2version major $(VERSIONING_FILES) --allow-dirty
+	bump2version major $(VERSIONING_FILES) --allow-dirty
 .PHONY: version-major
+
+
+
+clean:
+	rm -rf build
+	rm -rf dff_sphinx_theme
+	rm -rf dff_sphinx_theme.egg-info
+	rm -rf dist
+	rm -rf web-build
+	rm -rf demo/docs/examples
+.PHONY: clean
+
+clean-all: clean
+	rm -rf venv
+	rm -rf node_modules
+	rm -rf package-lock.json
+	rm -rf demo/requirements-lock.txt
+.PHONY: clean

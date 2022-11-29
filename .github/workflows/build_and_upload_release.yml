@@ -29,10 +29,10 @@ jobs:
           make node_modules
 
       - name: Build Theme 🏗️
-        run: make -o node_modules build-theme
+        run: make dff_sphinx_theme
 
       - name: Build Wheels ☸️
-        run: make -o build-theme build-wheels
+        run: make dist
 
       - name: Save Artifact 💾
         uses: actions/upload-artifact@v3
@@ -113,22 +113,22 @@ jobs:
           python-version: 3.7
 
       - name: Install Dependencies and Wheels 📩
-        run: make -o build-wheels demo-install
+        run: make demo/requirements-lock.txt
 
       - name: Install Pandoc 🐼
         run: sudo apt install pandoc
 
       - name: Build Demo Module 👁️
-        run: make DEMO_BASE_URL="/dff_sphinx_theme/" -o demo-install build-demo
+        run: make DEMO_BASE_URL="/dff_sphinx_theme/" demo-build
 
       - name: NoJekyll ❌
-        run: touch ./web-build/.nojekyll
+        run: touch ./demo-build/.nojekyll
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: ./web-build/
+          folder: ./demo-build/
           single-commit: True
 
   clear_and_delete_artifacts:
