@@ -103,7 +103,7 @@ a, .btn {
   @include sphinx-medium-size {
     font-size: rem(14px);
     float: left;
-    margin-left: $sphinx_right_menu_wrap_left_margin;
+    margin-left: calc(1.5rem + 5px);
   }
 
   @include sphinx-full-size {
