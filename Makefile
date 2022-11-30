@@ -4,6 +4,7 @@ VENV_PATH = venv
 PATH := $(VENV_PATH)/bin:$(PATH)
 
 DEMO_BASE_URL = .
+VERSIONING_FILES = setup.py demo/docs/conf.py
 
 
 help:
