@@ -10,9 +10,10 @@ VERSIONING_FILES = setup.py demo/docs/conf.py
 help:
 	@echo "Thanks for your interest in DFF Sphinx Theme!"
 	@echo
-	@echo "make build-demo: Build Demo website site"
-	@echo "make build-doc: Build Sphinx docs; activate your virtual environment before execution"
+	@echo "make demo-build: Build Demo website site"
+	@echo "make doc-build: Build Sphinx docs; activate your virtual environment before execution"
 	@echo "make build: Build all artifacts"
+	@echo "make rebuild: Rebuild all artifacts"
 	@echo "make lint: Run linters"
 	@echo "TODO: make test: Run basic tests (not testing most integrations)"
 	@echo "TODO: make test-all: Run ALL tests (slow, closest to CI)"

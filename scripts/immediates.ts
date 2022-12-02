@@ -24,6 +24,13 @@ if (ctal.length && ctal.is(":visible")) {
 
 
 
+if ($(".sphx-glr-clear").length) {
+    $("#pytorch-right-menu").hide();
+    $(".pytorch-content-left").first().css("width", "95%");
+}
+
+
+
 function unique(value: string, index: number, self: string[]): boolean {
     return self.indexOf(value) === index && value !== "";
 }

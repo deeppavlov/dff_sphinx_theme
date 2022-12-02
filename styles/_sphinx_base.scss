@@ -253,7 +253,7 @@ article.pytorch-article .section:first-of-type h1:first-of-type {
 article.pytorch-article .sphx-glr-thumbcontainer {
   border: 1px solid $medium_grey ;
   border-radius: 0;
-  width: 100%;
+  width: unset;
   text-align: center;
   margin: 0 0 5%;
 
