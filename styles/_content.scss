@@ -25,7 +25,8 @@ article.pytorch-article {
   }
 
   p {
-    margin-bottom: rem(18px);
+    margin-top: 1.125rem;
+    margin-bottom: 1.125rem;
   }
 
   p,
@@ -87,10 +88,6 @@ article.pytorch-article {
 
   dl dt {
     margin-bottom: rem(12px);
-  }
-
-  pre {
-    margin-bottom: rem(40px);
   }
 
   hr {
