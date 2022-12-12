@@ -2,11 +2,10 @@ import os
 import sys
 
 from jupytext import jupytext
+from dff_sphinx_theme.extras import generate_example_links_for_notebook_creation
 
 sys.path.append(os.path.abspath("."))
 sys.path.append(os.path.abspath(".."))
-
-from generate_notebook_links import generate_example_links_for_notebook_creation
 
 
 # -- Sphinx Options --
@@ -28,12 +27,11 @@ suppress_warnings = ['image.nonlocal_uri']
 templates_path = ['_templates']
 source_suffix = '.rst'
 master_doc = 'index'
-exclude_patterns = ['**/README.rst']
 
 project = u'DFF Sphinx Theme Demo'
 copyright = u'DFF'
-version = "0.1.15"
-release = "0.1.15"
+version = "0.1.16"
+release = "0.1.16"
 language = 'en'
 
 pygments_style = 'default'
@@ -83,4 +81,4 @@ htmlhelp_basename = 'DFFSphinxThemeDemoDoc'
 
 # -- Setup Configuration --
 def setup(_):
-    generate_example_links_for_notebook_creation(["demo/examples/1_basic_example.py"])
+    generate_example_links_for_notebook_creation(["demo/examples"], source="demo/examples", destination="demo/docs/examples")

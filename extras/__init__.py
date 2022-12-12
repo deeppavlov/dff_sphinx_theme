@@ -1,1 +1,3 @@
 from .custom_directives import IncludeDirective, GalleryItemDirective, CustomGalleryItemDirective, CustomCardItemDirective, CustomCalloutItemDirective
+from .generate_notebook_links import generate_example_links_for_notebook_creation
+from .regenerate_apiref import regenerate_apiref
