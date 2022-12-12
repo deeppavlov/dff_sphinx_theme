@@ -15,5 +15,5 @@ Demo Versioned Module
     lists_tables
     api
     long
-    examples/index
+    examples/examples_dir/index
     headers

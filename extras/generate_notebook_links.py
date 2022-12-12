@@ -28,13 +28,12 @@ def create_directory_index_file(file: Path, index: List[str]):
     file.write_text(contents)
 
 
-def iterate_dir_generating_notebook_links(source: str, dest: str, include: List[str], exclude: List[str]) -> List[str]:
-    source_path = Path(source)
+def iterate_dir_generating_notebook_links(current: Path, source: str, dest: str, include: List[str], exclude: List[str]) -> List[str]:
     dest_path = Path(dest)
-    if not source_path.is_dir():
-        raise Exception(f"Entity {source_path} appeared to be a file during processing!")
+    if not current.is_dir():
+        raise Exception(f"Entity {current} appeared to be a file during processing!")
     includes = list()
-    for entity in sorted(source_path.glob("./*")):
+    for entity in sorted(current.glob("./*")):
         doc_path = dest_path / entity.relative_to(source)
         if not entity.name.startswith("__"):
             if (
@@ -47,10 +46,10 @@ def iterate_dir_generating_notebook_links(source: str, dest: str, include: List[
                     includes.append(doc_path.name)
                 create_notebook_link(doc_path, entity)
             elif entity.is_dir() and not entity.name.startswith("_"):
-                if len(iterate_dir_generating_notebook_links(str(entity), dest, include, exclude)) > 0:
+                if len(iterate_dir_generating_notebook_links(entity, source, dest, include, exclude)) > 0:
                     includes.append(f"{doc_path.name}/index")
     if len(includes) > 0:
-        create_directory_index_file(dest_path / source_path.relative_to(source) / Path("index.rst"), includes)
+        create_directory_index_file(dest_path / current.relative_to(source) / Path("index.rst"), includes)
     return includes
 
 
@@ -61,6 +60,7 @@ def generate_example_links_for_notebook_creation(
     destination: str = "docs/source/examples/",
 ):
     iterate_dir_generating_notebook_links(
+        Path(source),
         source,
         destination,
         ["**"] if include is None else include,

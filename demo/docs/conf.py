@@ -30,8 +30,8 @@ master_doc = 'index'
 
 project = u'DFF Sphinx Theme Demo'
 copyright = u'DFF'
-version = "0.1.16"
-release = "0.1.16"
+version = "0.1.17"
+release = "0.1.17"
 language = 'en'
 
 pygments_style = 'default'
@@ -81,4 +81,8 @@ htmlhelp_basename = 'DFFSphinxThemeDemoDoc'
 
 # -- Setup Configuration --
 def setup(_):
-    generate_example_links_for_notebook_creation(["demo/examples"], source="demo/examples", destination="demo/docs/examples")
+    generate_example_links_for_notebook_creation(
+        ["demo/examples/examples_dir/*.py"],
+        source="demo/examples",
+        destination="demo/docs/examples"
+    )
