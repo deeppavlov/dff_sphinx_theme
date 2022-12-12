@@ -14,4 +14,3 @@ dist/
 yarn.lock
 package-lock.json
 demo/requirements-lock.txt
-demo/requirements-lock.txt
