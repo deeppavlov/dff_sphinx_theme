@@ -13,7 +13,6 @@ def generate_doc_container(file: Path, includes: List[Path]):
 {"=" * len(title)}
 
 .. toctree::
-   :caption: {title}
 
    {sources}
 """
