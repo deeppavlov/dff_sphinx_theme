@@ -453,6 +453,13 @@ article.pytorch-article {
         position: absolute;
         left: 0.5rem;
       }
+      a {
+        float: right;
+        right: 30px;
+        padding-right: 0;
+        top: 50%;
+        transform: unset;
+      }
     }
 
     dd {
