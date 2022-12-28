@@ -30,8 +30,8 @@ master_doc = 'index'
 
 project = u'DFF Sphinx Theme Demo'
 copyright = u'DFF'
-version = "0.1.19"
-release = "0.1.19"
+version = "0.1.20"
+release = "0.1.20"
 language = 'en'
 
 pygments_style = 'default'
