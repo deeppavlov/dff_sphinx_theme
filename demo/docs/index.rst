@@ -17,11 +17,3 @@ Demo Versioned Module
     long
     examples/examples_dir/index
     headers
-
-
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
