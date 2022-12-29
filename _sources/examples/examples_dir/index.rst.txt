@@ -1,0 +1,12 @@
+:orphan:
+
+.. This is an auto-generated RST index file representing examples directory structure
+
+Examples Dir
+============
+
+.. nbgallery::
+   :glob:
+   :caption: Examples Dir
+
+   1_basic_example.py

@@ -1,0 +1,802 @@
+
+
+
+    
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+    <head>
+       <meta charset="utf-8">
+<meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>6. Long Sticky Nav &mdash; DFF Sphinx Theme Demo 0.1.21 documentation</title>
+
+
+<!-- FAVICON -->
+
+
+<!-- CANONICAL URL -->
+
+
+<!-- BASE URL -->
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css">
+
+<link rel="stylesheet" href="_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="_static/styles/theme.css" type="text/css" />
+        <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+        <link rel="stylesheet" href="_static/gallery.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" type="text/css" />
+        <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
+
+<!-- OPENSEARCH -->
+
+        <link rel="index" title="Index" href="genindex.html" />
+        <link rel="search" title="Search" href="search.html" />
+        <link rel="next" title="7. Examples Dir" href="examples/examples_dir/index.html" />
+        <link rel="prev" title="5. test_py_module" href="api.html" />
+    <!-- Google Analytics TODO: disable if not needed -->
+    
+    <!-- End Google Analytics -->
+
+
+<!-- Keep modernizr in head - http://modernizr.com/docs/#installing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+    </head>
+
+    <div class="container-fluid header-holder" id="header-holder">
+    <div class="header-logo-container">
+        <a class="header-logo" href="intro_dff/index.html" aria-label="PyTorch"></a>
+    </div>
+
+    <div class="container">
+        <div class="header-container">
+            <div class="main-menu">
+                <ul>
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">Intro</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Dialog Flow Framework</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Addons</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">Designer</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <a href="#">Get Started</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Tutorials</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="./">Documentation</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <div id="resourcesDropdownButton" data-toggle="resources-dropdown" class="resources-dropdown">
+                            <a class="resource-option with-down-orange-arrow">About</a>
+                            <div class="resources-dropdown-menu">
+                                <a class="doc-dropdown-option nav-dropdown-item" href="#">
+                                    <span class="dropdown-title">About Us</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                                    <span class="dropdown-title">Forums</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://t.me/DeepPavlovDreamDiscussions">
+                                    <span class="dropdown-title">Telegram</span>
+                                </a>
+                                <a class="doc-dropdown-option nav-dropdown-item" href="https://github.com/deeppavlov/dialog_flow_framework">
+                                    <span class="dropdown-title">GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+        </div>
+    </div>
+</div>
+
+    <body class="pytorch-body">
+
+         
+
+        
+            <!-- SIDE NAV, TOGGLES ON MOBILE -->
+
+<div class="table-of-contents-link-wrapper">
+    <span>Table of Contents</span>
+    <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+</div>
+
+<nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+    <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <div class="pytorch-left-menu-search">
+                
+                    
+    <div role="search">
+        <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+            <input type="text" name="q" placeholder="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                
+            </div>
+
+            
+                <!-- The singlehtml builder doesn't handle this toctree call when the toctree is empty. Skip building this for now. -->
+                
+                    
+                
+                
+                    <p class="caption" role="heading"><span class="caption-text">Demo Documents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure.html">1. Structural Elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html#structural-elements-2">2. Structural Elements 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">3. Paragraph Level Markup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists_tables.html">4. Lists &amp; Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">5. <code class="xref py py-mod docutils literal notranslate"><span class="pre">test_py_module</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Long Sticky Nav</a><ul class='nested-toc-container'>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-1">6.1. Example Menu 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-2">6.2. Example Menu 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-3">6.3. Example Menu 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-4">6.4. Example Menu 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-5">6.5. Example Menu 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-6">6.6. Example Menu 6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-7">6.7. Example Menu 7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-8">6.8. Example Menu 8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-9">6.9. Example Menu 9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-10">6.10. Example Menu 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-11">6.11. Example Menu 11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-12">6.12. Example Menu 12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-13">6.13. Example Menu 13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-14">6.14. Example Menu 14</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-15">6.15. Example Menu 15</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-16">6.16. Example Menu 16</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-17">6.17. Example Menu 17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-18">6.18. Example Menu 18</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-19">6.19. Example Menu 19</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-menu-20">6.20. Example Menu 20</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-submenu-1">6.21. Example Submenu 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-submenu-2">6.22. Example Submenu 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_dir/index.html">7. Examples Dir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="headers.html">8. Document Title</a></li>
+</ul>
+
+                
+            
+        </div>
+    </div>
+</nav>
+        
+
+        <div class="pytorch-container">
+            <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+                <div class="pytorch-breadcrumbs-wrapper">
+                    
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+    <ul class="pytorch-breadcrumbs">
+        
+            
+            <li><span class="section-number">6. </span>Long Sticky Nav</li>
+        
+    </ul>
+
+    
+
+    
+        <div class="pytorch-breadcrumbs-aside">
+            
+                
+            
+        </div>
+    
+</div>
+                </div>
+
+                <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+                    Navigation
+                </div>
+            </div>
+
+            <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+                <div class="pytorch-content-left">
+                    
+                        
+                            <div class="rst-content">
+                        
+                                <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+                                        <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+                                            
+  <section id="long-sticky-nav">
+<h1><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">6. </span>Long Sticky Nav</a><a class="headerlink" href="#long-sticky-nav" title="Permalink to this heading">¶</a></h1>
+<nav class="contents" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#long-sticky-nav" id="id9">Long Sticky Nav</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-menu-1" id="id10">Example Menu 1</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-2" id="id11">Example Menu 2</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-3" id="id12">Example Menu 3</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-4" id="id13">Example Menu 4</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-5" id="id14">Example Menu 5</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-6" id="id15">Example Menu 6</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-7" id="id16">Example Menu 7</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-8" id="id17">Example Menu 8</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-9" id="id18">Example Menu 9</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-10" id="id19">Example Menu 10</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-11" id="id20">Example Menu 11</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-12" id="id21">Example Menu 12</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-13" id="id22">Example Menu 13</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-14" id="id23">Example Menu 14</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-15" id="id24">Example Menu 15</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-16" id="id25">Example Menu 16</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-17" id="id26">Example Menu 17</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-18" id="id27">Example Menu 18</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-19" id="id28">Example Menu 19</a></p></li>
+<li><p><a class="reference internal" href="#example-menu-20" id="id29">Example Menu 20</a></p></li>
+<li><p><a class="reference internal" href="#example-submenu-1" id="id30">Example Submenu 1</a></p>
+<ul>
+<li><p><a class="reference internal" href="#submenu-1" id="id31">Submenu 1</a></p>
+<ul>
+<li><p><a class="reference internal" href="#subsubmenu-1" id="id32">Subsubmenu 1</a></p></li>
+<li><p><a class="reference internal" href="#subsubmenu-2" id="id33">Subsubmenu 2</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#submenu-2" id="id34">Submenu 2</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id35">Subsubmenu 1</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#submenu-3" id="id36">Submenu 3</a></p></li>
+<li><p><a class="reference internal" href="#submenu-4" id="id37">Submenu 4</a></p></li>
+<li><p><a class="reference internal" href="#submenu-5" id="id38">Submenu 5</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#example-submenu-2" id="id39">Example Submenu 2</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id2" id="id40">Submenu 1</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id41">Subsubmenu 1</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id4" id="id42">Submenu 2</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id5" id="id43">Subsubmenu 1</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id6" id="id44">Submenu 3</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id45">Submenu 4</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id46">Submenu 5</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>This section demonstrates how the ‘sticky_navigation’ setting behaves when the menu is very long.
+When this section is selected, it will make the menu and the main area scroll when you are at the top of the page.</p>
+<section id="example-menu-1">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">6.1. </span>Example Menu 1</a><a class="headerlink" href="#example-menu-1" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-2">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">6.2. </span>Example Menu 2</a><a class="headerlink" href="#example-menu-2" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-3">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">6.3. </span>Example Menu 3</a><a class="headerlink" href="#example-menu-3" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-4">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">6.4. </span>Example Menu 4</a><a class="headerlink" href="#example-menu-4" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-5">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">6.5. </span>Example Menu 5</a><a class="headerlink" href="#example-menu-5" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-6">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">6.6. </span>Example Menu 6</a><a class="headerlink" href="#example-menu-6" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-7">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">6.7. </span>Example Menu 7</a><a class="headerlink" href="#example-menu-7" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-8">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">6.8. </span>Example Menu 8</a><a class="headerlink" href="#example-menu-8" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-9">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">6.9. </span>Example Menu 9</a><a class="headerlink" href="#example-menu-9" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-10">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">6.10. </span>Example Menu 10</a><a class="headerlink" href="#example-menu-10" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-11">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">6.11. </span>Example Menu 11</a><a class="headerlink" href="#example-menu-11" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-12">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">6.12. </span>Example Menu 12</a><a class="headerlink" href="#example-menu-12" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-13">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">6.13. </span>Example Menu 13</a><a class="headerlink" href="#example-menu-13" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-14">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">6.14. </span>Example Menu 14</a><a class="headerlink" href="#example-menu-14" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-15">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">6.15. </span>Example Menu 15</a><a class="headerlink" href="#example-menu-15" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-16">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">6.16. </span>Example Menu 16</a><a class="headerlink" href="#example-menu-16" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-17">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">6.17. </span>Example Menu 17</a><a class="headerlink" href="#example-menu-17" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-18">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">6.18. </span>Example Menu 18</a><a class="headerlink" href="#example-menu-18" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-19">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">6.19. </span>Example Menu 19</a><a class="headerlink" href="#example-menu-19" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-menu-20">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">6.20. </span>Example Menu 20</a><a class="headerlink" href="#example-menu-20" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+</section>
+<section id="example-submenu-1">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">6.21. </span>Example Submenu 1</a><a class="headerlink" href="#example-submenu-1" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+<section id="submenu-1">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">6.21.1. </span>Submenu 1</a><a class="headerlink" href="#submenu-1" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+<section id="subsubmenu-1">
+<h4><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">6.21.1.1. </span>Subsubmenu 1</a><a class="headerlink" href="#subsubmenu-1" title="Permalink to this heading">¶</a></h4>
+<p>Just a place holder…</p>
+</section>
+<section id="subsubmenu-2">
+<h4><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">6.21.1.2. </span>Subsubmenu 2</a><a class="headerlink" href="#subsubmenu-2" title="Permalink to this heading">¶</a></h4>
+<p>Just a place holder…</p>
+</section>
+</section>
+<section id="submenu-2">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">6.21.2. </span>Submenu 2</a><a class="headerlink" href="#submenu-2" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+<section id="id1">
+<h4><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">6.21.2.1. </span>Subsubmenu 1</a><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h4>
+<p>Just a place holder…</p>
+</section>
+</section>
+<section id="submenu-3">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">6.21.3. </span>Submenu 3</a><a class="headerlink" href="#submenu-3" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+</section>
+<section id="submenu-4">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">6.21.4. </span>Submenu 4</a><a class="headerlink" href="#submenu-4" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+</section>
+<section id="submenu-5">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">6.21.5. </span>Submenu 5</a><a class="headerlink" href="#submenu-5" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+</section>
+</section>
+<section id="example-submenu-2">
+<h2><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">6.22. </span>Example Submenu 2</a><a class="headerlink" href="#example-submenu-2" title="Permalink to this heading">¶</a></h2>
+<p>Just a place holder…</p>
+<section id="id2">
+<h3><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">6.22.1. </span>Submenu 1</a><a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+<section id="id3">
+<h4><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">6.22.1.1. </span>Subsubmenu 1</a><a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h4>
+<p>Just a place holder…</p>
+</section>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">6.22.2. </span>Submenu 2</a><a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+<section id="id5">
+<h4><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">6.22.2.1. </span>Subsubmenu 1</a><a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h4>
+<p>Just a place holder…</p>
+</section>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">6.22.3. </span>Submenu 3</a><a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+</section>
+<section id="id7">
+<h3><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">6.22.4. </span>Submenu 4</a><a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+</section>
+<section id="id8">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">6.22.5. </span>Submenu 5</a><a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<p>Just a place holder…</p>
+</section>
+</section>
+</section>
+
+
+                                        </article>
+                                        
+                                </div>
+                                <footer>
+    
+        <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+            
+                <a href="examples/examples_dir/index.html" class="btn btn-neutral float-right" title="7. Examples Dir" accesskey="n" rel="next">
+                    Next
+                    <span class="next-page"></span>
+                </a>
+            
+            
+                <a href="api.html" class="btn btn-neutral" title="5. test_py_module" accesskey="p" rel="prev">
+                    <span class="previous-page"></span>
+                    Previous
+                </a>
+            
+        </div>
+    
+
+    <hr>
+
+    <div role="contentinfo">
+        <p>
+                    &copy; Copyright DFF.
+        </p>
+            
+                <div>
+                    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/deeppavlov/dff_sphinx_theme">theme</a> provided by <a href="https://deeppavlov.ai">DeepPavlov</a>.
+                </div>
+            
+    </div> 
+</footer>
+                            </div>
+                </div>
+
+                <nav class="pytorch-right-menu" id="pytorch-right-menu">
+                    <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+                        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="additional navigation">
+                            <ul>
+<li><a class="reference internal" href="#">6. Long Sticky Nav</a><ul>
+<li><a class="reference internal" href="#example-menu-1">6.1. Example Menu 1</a></li>
+<li><a class="reference internal" href="#example-menu-2">6.2. Example Menu 2</a></li>
+<li><a class="reference internal" href="#example-menu-3">6.3. Example Menu 3</a></li>
+<li><a class="reference internal" href="#example-menu-4">6.4. Example Menu 4</a></li>
+<li><a class="reference internal" href="#example-menu-5">6.5. Example Menu 5</a></li>
+<li><a class="reference internal" href="#example-menu-6">6.6. Example Menu 6</a></li>
+<li><a class="reference internal" href="#example-menu-7">6.7. Example Menu 7</a></li>
+<li><a class="reference internal" href="#example-menu-8">6.8. Example Menu 8</a></li>
+<li><a class="reference internal" href="#example-menu-9">6.9. Example Menu 9</a></li>
+<li><a class="reference internal" href="#example-menu-10">6.10. Example Menu 10</a></li>
+<li><a class="reference internal" href="#example-menu-11">6.11. Example Menu 11</a></li>
+<li><a class="reference internal" href="#example-menu-12">6.12. Example Menu 12</a></li>
+<li><a class="reference internal" href="#example-menu-13">6.13. Example Menu 13</a></li>
+<li><a class="reference internal" href="#example-menu-14">6.14. Example Menu 14</a></li>
+<li><a class="reference internal" href="#example-menu-15">6.15. Example Menu 15</a></li>
+<li><a class="reference internal" href="#example-menu-16">6.16. Example Menu 16</a></li>
+<li><a class="reference internal" href="#example-menu-17">6.17. Example Menu 17</a></li>
+<li><a class="reference internal" href="#example-menu-18">6.18. Example Menu 18</a></li>
+<li><a class="reference internal" href="#example-menu-19">6.19. Example Menu 19</a></li>
+<li><a class="reference internal" href="#example-menu-20">6.20. Example Menu 20</a></li>
+<li><a class="reference internal" href="#example-submenu-1">6.21. Example Submenu 1</a><ul>
+<li><a class="reference internal" href="#submenu-1">6.21.1. Submenu 1</a><ul>
+<li><a class="reference internal" href="#subsubmenu-1">6.21.1.1. Subsubmenu 1</a></li>
+<li><a class="reference internal" href="#subsubmenu-2">6.21.1.2. Subsubmenu 2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#submenu-2">6.21.2. Submenu 2</a><ul>
+<li><a class="reference internal" href="#id1">6.21.2.1. Subsubmenu 1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#submenu-3">6.21.3. Submenu 3</a></li>
+<li><a class="reference internal" href="#submenu-4">6.21.4. Submenu 4</a></li>
+<li><a class="reference internal" href="#submenu-5">6.21.5. Submenu 5</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-submenu-2">6.22. Example Submenu 2</a><ul>
+<li><a class="reference internal" href="#id2">6.22.1. Submenu 1</a><ul>
+<li><a class="reference internal" href="#id3">6.22.1.1. Subsubmenu 1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id4">6.22.2. Submenu 2</a><ul>
+<li><a class="reference internal" href="#id5">6.22.2.1. Subsubmenu 1</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">6.22.3. Submenu 3</a></li>
+<li><a class="reference internal" href="#id7">6.22.4. Submenu 4</a></li>
+<li><a class="reference internal" href="#id8">6.22.5. Submenu 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </div>
+                </nav>
+            </section>
+        </div> 
+
+        <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Docs</h2>
+                <p>Access comprehensive developer documentation for DFF</p>
+                <a class="with-right-arrow" href="../documentation">View Docs</a>
+            </div>
+
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Tutorials</h2>
+                <p>Get in-depth tutorials for beginners and advanced developers</p>
+                <a class="with-right-arrow" href="../tutorials">View Tutorials</a>
+            </div>
+
+            <!--TODO: fix!!-->
+            <div class="col-md-4 text-center">
+                <h2 class="white-header">Resources</h2>
+                <p>Find development resources and get your questions answered</p>
+                <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="container footer-container">
+        <!--TODO: fix!!-->
+        <div class="footer-logo-wrapper">
+            <a href="../intro_dff" class="footer-logo"></a>
+        </div>
+
+        <div class="footer-links-wrapper">
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="../intro_dff">DialogFlow Framework</a>
+                    </li>
+
+                    <li>
+                        <a href="../get_started">Get Started</a>
+                    </li>
+
+                    <!--TODO: fix!!-->
+                    <li>
+                        <a href="https://pytorch.org/features">Features</a>
+                    </li>
+
+                    <li>
+                        <a href="../ecosystem">Ecosystem</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/blob/master/CONTRIBUTING.md">Contributing</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col">
+                <ul>
+                    <!--TODO: fix!!-->
+                    <li class="list-title">
+                        <a href="https://pytorch.org/resources">Resources</a>
+                    </li>
+
+                    <li>
+                        <a href="../tutorials">Tutorials</a>
+                    </li>
+
+                    <li>
+                        <a href="../documentation">Docs</a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions" target="_blank">Discuss</a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework/issues" target="_blank">Github Issues</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links-col follow-us-col">
+                <ul>
+                    <li class="list-title">Stay Connected</li>
+                </ul>
+
+                <div class="footer-social-icons">
+                    <a href="https://www.facebook.com/deepmipt" target="_blank" class="facebook"></a>
+                    <a href="https://twitter.com/deeppavlov" target="_blank" class="twitter"></a>
+                    <a href="https://www.youtube.com/c/deeppavlov" target="_blank" class="youtube"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="cookie-banner-wrapper">
+    <div class="container">
+        <p class="gdpr-notice">To analyze traffic and optimize your experience, we serve cookies on this site. By clicking or navigating, you agree to allow our usage of cookies. As the current maintainers of this site, Facebook’s Cookies Policy applies. Learn more, including about available controls: <a href="https://www.facebook.com/policies/cookies/">Cookies Policy</a>.</p>
+        <span class="close-button"></span>
+    </div>
+</div>
+
+        <div class="mobile-main-menu">
+    <div class="container-fluid">
+        <div class="container header-holder-mobile">
+            <div class="mobile-main-menu-header-container">
+                <a class="header-logo" href="intro_dff/index.html" aria-label="PyTorch"></a>
+                <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+        <div class="main-menu">
+            <ul>
+                <li class="resources-mobile-menu-title">
+                    Intro
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Dialog Flow Framework</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Addons</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">Designer</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <li>
+                    <a href="#">Get Started</a>
+                </li>
+
+                <li>
+                    <a href="#">Tutorials</a>
+                </li>
+
+                <li class="active">
+                    <a href="./">Documentation</a>
+                </li>
+
+                <li>
+                    <a href="#">Ecosystem</a>
+                </li>
+
+                <li class="resources-mobile-menu-title">
+                    About
+                </li>
+
+                <ul class="resources-mobile-menu-items">
+                    <li>
+                        <a href="#">
+                            <span class="dropdown-title">About Us</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://forum.deeppavlov.ai/c/dff-is-a-dialog-flow-framework-it-is-an-open-source-framework-built-to-enable-scenario-driven-skills-chatbots-development/51">
+                            <span class="dropdown-title">Forums</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://t.me/DeepPavlovDreamDiscussions">
+                            <span class="dropdown-title">Telegram</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://github.com/deeppavlov/dialog_flow_framework">
+                            <span class="dropdown-title">GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.0/anchor.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+
+
+    
+        <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+            <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+            <script src="_static/jquery.js"></script>
+            <script src="_static/underscore.js"></script>
+            <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+            <script src="_static/doctools.js"></script>
+            <script src="_static/sphinx_highlight.js"></script>
+            <script src="_static/clipboard.min.js"></script>
+            <script src="_static/copybutton.js"></script>
+            <script src="_static/katex.min.js"></script>
+            <script src="_static/auto-render.min.js"></script>
+            <script src="_static/katex_autorenderer.js"></script>
+            <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+
+    
+
+
+
+<script type="text/javascript" src="_static/scripts/theme.min.js" enable="true"></script>
+    </body>
+</html>
