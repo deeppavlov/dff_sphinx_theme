@@ -23,7 +23,7 @@ demo_requirements = [line for line in demo_reqs_lines if line and not line.start
 
 setup(
     name='dff_sphinx_theme',
-    version="0.1.20",
+    version="0.1.21",
     author='Alexander Sergeev',
     author_email='shveitsar215@gmail.com',
     url="https://github.com/deeppavlov/dff_sphinx_theme",

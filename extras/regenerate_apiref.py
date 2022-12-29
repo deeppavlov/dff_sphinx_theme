@@ -14,6 +14,7 @@ def generate_doc_container(file: Path, includes: List[Path]):
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
 
    {sources}
 """
